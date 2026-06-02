@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>龙文教育 - 专注中高考集训</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            line-height: 1.6;
+            background: #F5F5F5;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, #FF6B3D 0%, #FF8A5C 100%);
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-title {
+            font-size: 72px;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 10px;
+            letter-spacing: 4px;
+        }
+        
+        .hero-subtitle {
+            font-size: 28px;
+            color: white;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .hero-button {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .hero-button:hover {
+            background: white;
+            color: #FF6B3D;
+        }
+        
+        .hero-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .hero-info-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .hero-image {
+            flex: 0 0 450px;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .feature-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .feature-tag::before {
+            content: "│";
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .feature-tag:first-child::before {
+            content: "";
+        }
+        
+        /* Hot Courses Section */
+        .hot-courses-section {
+            padding: 40px;
+            background: #f8f8f8;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #ff460a;
+            margin-bottom: 15px;
+        }
+        
+        .section-subtitle {
+            font-size: 30px;
+            color: #666;
+        }
+        
+        .section-subtitle::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 6px;
+            background: #FF6B3D;
+            margin: 15px auto 0;
+            border-radius: 5px;
+        }
+        
+        .courses-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .course-card {
+            height: 586px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .course-card img{
+            width: stretch;
+            object-fit: fill;
+        }
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .course-image {
+            width: 100%;
+            height: 220px;
+            position: relative;
+        }
+        
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .course-content {
+            background: linear-gradient(135deg, #FF6B3D 0%, #FF8A5C 100%);
+            padding: 30px 25px;
+            color: white;
+        }
+        
+        .course-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .course-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .course-feature {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            background: linear-gradient(90deg, #FF9D4A 0%, #FF7B1F 100%);
+            color: white;
+            border: none;
+            padding: 10px 80px;
+            border-radius: 30px;
+            font-size: 30px;
+            letter-spacing:5px;
+            font-weight: 600;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(255, 125, 31, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 125, 31, 0.4);
+        }
+        
+        /* Effect Management Section */
+        .effect-section {
+            background: linear-gradient(135deg, #FF6B3D 0%, #FF8A5C 100%);
+            padding: 80px 40px;
+        }
+        
+        .effect-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .effect-image {
+            flex: 0 0 500px;
+        }
+        
+        .effect-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .effect-content {
+            flex: 1;
+            color: white;
+        }
+        
+        .effect-title {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .effect-title::before {
+            content: "✦";
+            font-size: 42px;
+            color: #FFD700;
+        }
+        
+        .effect-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .effect-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .effect-item-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #FFD700;
+        }
+        
+        .effect-item-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .effect-item-desc {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        
+        .effect-footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 16px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        /* Teacher Section */
+        .teacher-section {
+            padding: 80px 40px;
+            background: white;
+            text-align: center;            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .teacher-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .teacher-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .teacher-title::before {
+            content: "★";
+            font-size: 42px;
+            color: #FFD700;
+        }
+        
+        .teacher-content {
+            position: relative;
+        }
+        
+        .teacher-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .teacher-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+        
+        .teacher-features {
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .teacher-feature {
+            background: linear-gradient(90deg, #FF9D4A 0%, #FF7B1F 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(255, 125, 31, 0.3);
+            min-width: 250px;
+        }
+        
+        .teacher-feature-number {
+            font-size: 24px;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-image {
+                flex: 0 0 auto;
+                max-width: 400px;
+                margin-top: 30px;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .effect-container {
+                flex-direction: column;
+            }
+            
+            .effect-image {
+                flex: 0 0 auto;
+                max-width: 100%;
+            }
+            
+            .teacher-features {
+                position: static;
+                transform: none;
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+        <div>
+            <img src="./images/1.png" alt="" style="width: stretch;">
+        </div>
+    
+    <!-- Hot Courses Section -->
+    <section class="hot-courses-section">
+        <div class="section-header">
+            <h2 class="section-title">热门课程</h2>
+            <p class="section-subtitle">本地化教材 | 贴合考情 | 多班型可选</p>
+        </div>
+        
+        <div class="courses-grid">
+            <div class="course-card">
+                <img src="./images/2.png" alt="">
+            </div>
+            
+            <div class="course-card">
+                <img src="./images/3.png" alt="">
+            </div>
+            
+            <div class="course-card">
+                <img src="./images/4.png" alt="">
+            </div>
+        </div>
+        
+        <button class="cta-button">咨询课程详情</button>
+    </section>
+    
+    <!-- Effect Management Section -->
+    <section>
+        <img src="./images/5.png" alt="" style="width: stretch;object-fit: fill;">
+    </section>
+    
+    <!-- Consultation CTA -->
+    <section class="hot-courses-section" style="padding: 60px 40px;">
+        <button class="cta-button">咨询课程详情</button>
+    </section>
+    
+    <!-- Teacher Section -->
+    <section class="teacher-section">
+        <div style="width: 50%;">
+            <img src="./images/6.png" alt="" style="width: stretch;object-fit: fill;">
+        </div>
+    </section>
+</body>
+</html>

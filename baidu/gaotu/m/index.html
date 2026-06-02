@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高途教育 - 高中全科在线网课</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --orange: #ff5a13;
+      --orange-deep: #ff4b0b;
+      --orange-light: #ff8a20;
+      --yellow: #ffd83b;
+      --text: #222;
+      --muted: #7c7c7c;
+      --card-radius: 26px;
+      --side-gap: clamp(18px, 5.2vw, 42px);
+    }
+
+    html {
+      background: #efefef;
+      font-size: 16px;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      color: var(--text);
+      background: #efefef;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .page {
+      position: relative;
+      width: 100%;
+      max-width: 540px;
+      margin: 0 auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 3% 13%, rgba(255, 184, 79, .55) 0 24px, transparent 25px),
+        linear-gradient(180deg, #ff9d2a 0, #ff6215 360px, var(--orange-deep) 100%);
+    }
+
+    .page::before,
+    .page::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      width: 35px;
+      height: 35px;
+      background: var(--yellow);
+      clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%);
+      filter: drop-shadow(0 2px 0 rgba(255, 92, 15, .28));
+    }
+
+    .page::before {
+      top: 175px;
+      right: 17px;
+      width: 28px;
+      height: 28px;
+    }
+
+    .page::after {
+      top: 1244px;
+      left: 13px;
+      width: 34px;
+      height: 34px;
+    }
+
+    .sparkle {
+      position: absolute;
+      z-index: 2;
+      width: 26px;
+      height: 26px;
+      background: var(--yellow);
+      clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%);
+    }
+
+    .sparkle.s1 { top: 28px; right: 15px; width: 18px; height: 18px; }
+    .sparkle.s2 { top: 139px; right: 59px; width: 27px; height: 27px; }
+    .sparkle.s3 { top: 402px; left: 229px; width: 33px; height: 33px; }
+    .sparkle.s4 { top: 1290px; right: 19px; width: 31px; height: 31px; }
+    .sparkle.s5 { top: 2030px; right: 21px; width: 28px; height: 28px; }
+    .sparkle.s6 { bottom: 76px; left: 23px; width: 32px; height: 32px; }
+
+    .scribble {
+      position: absolute;
+      z-index: 2;
+      width: 50px;
+      height: 58px;
+      transform: rotate(-42deg);
+      border-radius: 7px;
+      /* background:
+        linear-gradient(90deg, #fff7cf 0 27%, #ffd95c 27% 37%, #fff7cf 37% 63%, #ffd95c 63% 73%, #fff7cf 73% 100%); */
+      /* box-shadow: 0 0 0 4px rgba(255, 207, 62, .42); */
+    }
+
+    .scribble::after {
+      content: "";
+      position: absolute;
+      left: 11px;
+      bottom: -14px;
+      width: 28px;
+      height: 21px;
+      /* background: #fff4c1; */
+      clip-path: polygon(50% 100%, 0 0, 100% 0);
+    }
+
+    .pencil {
+      position: absolute;
+      z-index: 2;
+      width: 76px;
+      height: 18px;
+      border-radius: 4px;
+      transform: rotate(-45deg);
+      background:
+        linear-gradient(90deg, #ffe9ba 0 12%, #ff7444 12% 42%, #fff 42% 48%, #ff7444 48% 84%, #f5b25d 84% 100%);
+      box-shadow: 0 4px 0 rgba(223, 67, 0, .18);
+    }
+
+    .pencil::after {
+      content: "";
+      position: absolute;
+      right: -13px;
+      top: 0;
+      width: 16px;
+      height: 18px;
+      background: #ffd18b;
+      clip-path: polygon(0 0, 100% 50%, 0 100%);
+    }
+
+    .pencil.p1 { top: 47px; right: 49px; width: 60px; height: 16px; transform: rotate(34deg); }
+    .pencil.p2 { top: 535px; right: 37px; }
+    .pencil.p3 { top: 1856px; left: 26px; }
+
+    .rocket {
+      position: absolute;
+      z-index: 2;
+      right: 9px;
+      top: 2210px;
+      width: 78px;
+      height: 78px;
+      transform: rotate(-35deg);
+    }
+
+    .rocket::before {
+      content: "";
+      position: absolute;
+      inset: 13px 18px 11px 18px;
+      border-radius: 50% 50% 45% 45%;
+      background: linear-gradient(180deg, #ffedf3 0 42%, #ff6e88 42% 100%);
+      box-shadow: inset 0 0 0 3px rgba(255, 92, 15, .35);
+    }
+
+    .rocket::after {
+      content: "";
+      position: absolute;
+      left: 30px;
+      top: 27px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #7bd8ff;
+      box-shadow: 0 0 0 4px #fff;
+    }
+
+    .hero {
+      position: relative;
+      z-index: 3;
+      min-height: 536px;
+      padding-top: 64px;
+    }
+
+    .hero-badge {
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 327px;
+      max-width: calc(100% - 86px);
+      height: 58px;
+      transform: translateX(-50%);
+      border: 5px solid #fff9e5;
+      border-radius: 33px;
+      background:linear-gradient(90deg,#f85c11,#fd8c20);
+      color: #fff;
+      font-size: clamp(25px, 5vw, 27px);
+      font-weight: 900;
+      letter-spacing: 1px;
+      box-shadow: 0 7px 0 rgba(218, 74, 0, .35);
+      letter-spacing: 2px;
+    }
+
+    .hero-bubble {
+      position: absolute;
+      left: 31px;
+      top: 97px;
+      width: 392px;
+      max-width: calc(100% - 62px);
+      height: 362px;
+      border-radius: 28px 46px 32px 22px;
+      background: #fff;
+      transform: rotate(-3deg);
+    }
+
+    .hero-bubble::after {
+      content: "";
+      position: absolute;
+      left: 59px;
+      bottom: -60px;
+      width: 95px;
+      height: 75px;
+      background: #fff;
+      clip-path: polygon(0 0, 100% 0, 16% 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      min-height: 462px;
+      padding: 123px 19px 0 67px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 4;
+      flex: 0 1 253px;
+      padding-bottom: 89px;
+    }
+
+    .brand-title {
+      margin-bottom: 11px;
+      color: #ff5815;
+      font-size: clamp(50px, 10.5vw, 56px);
+      font-weight: 1000;
+      line-height: .96;
+      letter-spacing: 2px;
+      text-shadow: 0 3px 0 #fff0db;
+    }
+
+    .tag-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 7px;
+      padding-left: 31px;
+    }
+
+    .tag {
+      min-width: 185px;
+      border-radius: 20px;
+      background: #ff651b;
+      color: #fff;
+      font-size: clamp(14px, 3.4vw, 18px);
+      font-weight: 800;
+      line-height: 28px;
+      text-align: center;
+      box-shadow: inset 0 -2px 0 rgba(207, 55, 0, .15);
+    }
+
+    .hero-person {
+      position: absolute;
+      right: -18px;
+      bottom: 14px;
+      z-index: 3;
+      width: min(264px, 49vw);
+      height: 323px;
+      border-radius: 54% 46% 0 0 / 42% 39% 0 0;
+      background:
+        radial-gradient(circle at 50% 25%, #ffe2ce 0 38px, transparent 39px),
+        linear-gradient(90deg, transparent 0 36%, #151515 36% 43%, #fff 43% 60%, #151515 60% 67%, transparent 67%),
+        linear-gradient(180deg, #f5cfb8 0 31%, #fff 31% 100%);
+      box-shadow: inset 0 -34px 0 rgba(20, 20, 20, .08);
+    }
+
+    .hero-person::before {
+      content: "人物图";
+      position: absolute;
+      right: 35px;
+      top: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 126px;
+      height: 126px;
+      border: 2px dashed rgba(255, 101, 27, .7);
+      border-radius: 50%;
+      color: #ff651b;
+      font-weight: 800;
+      background: rgba(255, 255, 255, .78);
+    }
+
+    .hero-laptop {
+      position: absolute;
+      right: -23px;
+      bottom: 4px;
+      z-index: 6;
+      width: 173px;
+      height: 42px;
+      transform: skewX(-13deg) rotate(-1deg);
+      border-radius: 6px;
+      background: #fff2df;
+      box-shadow: 0 8px 0 rgba(230, 88, 18, .2);
+    }
+
+    .notebook {
+      position: relative;
+      z-index: 4;
+      width: calc(100% - var(--side-gap) * 2);
+      margin: 0 auto 39px;
+      padding: 52px clamp(18px, 5vw, 32px) 26px;
+      border-radius: var(--card-radius);
+      background: #fff;
+      box-shadow: 0 2px 0 rgba(255, 255, 255, .65);
+    }
+
+    .notebook::before {
+      content: "";
+      position: absolute;
+      left: 48px;
+      right: 48px;
+      top: -14px;
+      height: 32px;
+      background:
+        radial-gradient(circle at 10px 20px, #ff6420 0 6px, transparent 7px) 0 0 / 32px 32px repeat-x,
+        radial-gradient(circle at 10px 20px, #fff 0 5px, transparent 6px) 0 0 / 32px 32px repeat-x,
+        linear-gradient(90deg, transparent 7px, #ffd4b4 7px 13px, transparent 13px 100%) 0 0 / 32px 32px repeat-x;
+    }
+
+    .note-1 {
+      margin-top: -7px;
+      padding-bottom: 29px;
+    }
+
+    .section-title {
+      color: #202020;
+      font-size: clamp(25px, 5.3vw, 28px);
+      font-weight: 1000;
+      line-height: 1.16;
+      text-align: center;
+      letter-spacing:1px;
+    }
+
+    .section-title .orange {
+      color: #ff5c16;
+    }
+
+    .section-subtitle {
+      margin-top: 3px;
+      color: #ff5c16;
+      font-size: clamp(20px, 4.2vw, 23px);
+      font-weight: 900;
+      line-height: 1.25;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 11px 18px;
+      margin-top: 23px;
+      padding: 0 19px;
+    }
+
+    .subject {
+      height: 35px;
+      border-radius: 13px;
+      background: linear-gradient(90deg, #f85d11, #fd9027);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 35px;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .course-card {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .photo-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      overflow: hidden;
+      border: 3px solid #ffd3aa;
+      border-radius: 4px;
+      /* background:
+        linear-gradient(135deg, rgba(255, 112, 51, .12), rgba(255, 255, 255, .35)),
+        repeating-linear-gradient(45deg, #fff2e6 0 10px, #ffe1c7 10px 20px); */
+      color: #ff641b;
+      font-size: 15px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .photo-box::after {
+      content: attr(data-label);
+      position: relative;
+      z-index: 2;
+      padding: 4px 12px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, .86);
+      box-shadow: 0 0 0 1px rgba(255, 101, 27, .25);
+    }
+
+    .course-photo {
+      aspect-ratio: 166 / 118;
+    }
+
+    .course-caption {
+      height: 29px;
+      margin-top: -13px;
+      z-index: 3;
+      align-self: stretch;
+      border-radius: 0;
+      background: #ff7244;
+      color: #fff;
+      font-size: clamp(16px, 3.4vw, 17px);
+      font-weight: 900;
+      line-height: 29px;
+      text-align: center;
+      letter-spacing: 1px;
+      border-bottom-left-radius:3px;
+      border-bottom-right-radius:3px;
+    }
+
+    .course-copy {
+      color: #5e5e5e;
+      font-size: 11px;
+      line-height: 1.42;
+    }
+
+    .course-copy b {
+      display: block;
+      margin-bottom: 1px;
+      color: #ff641b;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .small-btn {
+      align-self: center;
+      width: min(142px, 100%);
+      height: 27px;
+      border: 0;
+      border-radius: 14px;
+      background: #ff641b;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 27px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: min(372px, 100%);
+      height: 40px;
+      margin: 24px auto 0;
+      border: 0;
+      border-radius: 22px;
+      background: linear-gradient(90deg, #ff7b1f, #ff5b14);
+      color: #fff;
+      font-size: clamp(20px, 4vw, 20px);
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: inset 0 -2px 0 rgba(199, 53, 0, .2);
+      letter-spacing: 2px;
+    }
+
+    .device-photo {
+      aspect-ratio: 370 / 221;
+      margin-top: 25px;
+      border-width: 0;
+      border-radius: 4px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px 26px;
+      margin-top: 24px;
+    }
+
+    .feature {
+      position: relative;
+      display: flex;
+      min-height: 61px;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid #ff8f50;
+      border-radius: 33px;
+      padding: 7px 9px 7px 20px;
+    }
+
+    .feature::before {
+      content: "";
+      position: absolute;
+      left: -8px;
+      top: 50%;
+      width: 16px;
+      height: 16px;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background: #fff030;
+      box-shadow: 0 0 0 2px #ff6a1f;
+    }
+
+    .feature strong {
+      display: block;
+      color: #ff5f19;
+      font-size: 14px;
+      line-height: 1.1;
+    }
+
+    .feature span {
+      display: block;
+      margin-top: 3px;
+      color: #666;
+      font-size: 10px;
+      line-height: 1.2;
+    }
+
+    .teacher-photo {
+      /* aspect-ratio: 374 / 250; */
+      margin-top: 27px;
+      border-width: 0;
+      border-radius: 3px;
+    }
+
+    .teacher-list {
+      margin: 14px 0 0;
+      list-style: none;
+    }
+
+    .teacher-list li {
+      display: flex;
+      align-items: center;
+      min-height: 31px;
+      border-bottom: 1px solid #e2e2e2;
+      color: #fc7f15;
+      font-size: clamp(16px, 3.4vw, 17px);
+      letter-spacing: 1px;
+    }
+
+    .teacher-list li::before {
+      content: "·";
+      margin-right: 2px;
+      color: #ff6420;
+      font-weight: 900;
+    }
+
+    .ai-title {
+      text-align: center;
+    }
+
+    .ai-title .main {
+      display: block;
+      color: #ff5d17;
+      font-size: clamp(23px, 5.6vw, 30px);
+      font-weight: 1000;
+      line-height: 1.05;
+    }
+
+    .ai-title .sub {
+      display: block;
+      margin-top: 2px;
+      color: #2d2d2d;
+      font-size: clamp(21px, 5.1vw, 27px);
+      font-weight: 1000;
+      line-height: 1.18;
+    }
+
+    .ai-ribbon {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 35px;
+      margin: 18px auto 22px;
+      padding: 0 16px;
+      border-radius: 17px;
+      background: #ff6420;
+      color: #fff;
+      font-size: clamp(17px, 3.8vw, 21px);
+      font-weight: 1000;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .ai-ribbon::after {
+      content: "";
+      position: absolute;
+      bottom: -17px;
+      left: 50%;
+      width: 34px;
+      height: 18px;
+      transform: translateX(-50%);
+      background: #ff6420;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+
+    .dash-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px 17px;
+      padding: 0 6px;
+    }
+
+    .dash-card {
+      min-height: 137px;
+      overflow: hidden;
+      border: 2px solid #ffb19c;
+      border-radius: 5px;
+      background: #fffaf7;
+      margin-top: 10px;
+    }
+
+    .dash-head {
+      height: 27px;
+      padding: 0 20px;
+      background: linear-gradient(0deg, #e65103, #f6930d);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 27px;
+      position: absolute;
+      border-top-right-radius:15px;
+      border-bottom-right-radius:15px;
+      border-top-left-radius:15px;
+      letter-spacing: 1px;
+    }
+
+    .dash-body {
+      padding-top: 20px;
+    }
+
+    .ai-bottom {
+      margin-top: 42px;
+    }
+
+    .orange-strip {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 35px;
+      margin: 0 auto 27px;
+      padding: 0 18px;
+      border-radius: 18px;
+      background: #ff6420;
+      color: #fff;
+      font-size: clamp(20px, 4.1vw, 21px);
+      font-weight: 1000;
+      text-align: center;
+    }
+
+    .orange-strip::after {
+      content: "";
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      width: 32px;
+      height: 17px;
+      transform: translateX(-50%);
+      background: #ff6420;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+
+    .phone-photo {
+      aspect-ratio: 372 / 268;
+      margin: 0 auto 9px;
+      border: 0;
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at 50% 10%, rgba(255, 255, 255, .95) 0 30px, transparent 31px),
+        linear-gradient(90deg, rgba(255, 255, 255, .76), transparent 17%, transparent 83%, rgba(255, 255, 255, .76)),
+        repeating-linear-gradient(90deg, #fff 0 70px, #f3f3f3 70px 72px);
+    }
+
+    .service-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      width: min(344px, 100%);
+      margin: 0 auto;
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 113px 1fr;
+      min-height: 42px;
+      border-bottom: 1px solid #fff;
+      background: #fff2ec;
+      font-size: clamp(12px, 3.2vw, 15px);
+      line-height: 1.25;
+      border:1px solid #e0e0e0;
+      margin-top: 5px;
+    }
+    
+    .service-row b {
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ff7444;
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .service-row span {
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      color: #444;
+      background: #fff7f3;
+    }
+
+    @media (max-width: 420px) {
+      .hero {
+        min-height: 510px;
+      }
+
+      .hero-content {
+        padding-left: 46px;
+      }
+
+      .hero-bubble {
+        left: 20px;
+        max-width: calc(100% - 38px);
+      }
+
+      .tag-stack {
+        padding-left: 10px;
+      }
+
+      .tag {
+        min-width: 158px;
+      }
+
+      .hero-person {
+        right: -51px;
+        width: 236px;
+      }
+
+      .notebook {
+        width: calc(100% - 32px);
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .notebook::before {
+        left: 34px;
+        right: 34px;
+      }
+
+      .subjects {
+        gap: 9px;
+        padding: 0;
+      }
+
+      .course-grid,
+      .feature-grid,
+      .dash-grid {
+        gap: 12px;
+      }
+
+      .feature {
+        padding-right: 7px;
+        padding-left: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <i class="sparkle s1"></i>
+    <i class="sparkle s2"></i>
+    <i class="sparkle s3"></i>
+    <i class="sparkle s4"></i>
+    <i class="sparkle s5"></i>
+    <i class="sparkle s6"></i>
+    <i class="pencil p1"></i>
+    <i class="pencil p2"></i>
+    <i class="pencil p3"></i>
+    <i class="scribble" style="top: 780px; left: 37px;">
+      <img src="./images/书本.png" style="object-fit: fill;width:stretch;">
+    </i>
+    <i class="rocket"></i>
+    
+    <section class="hero">
+      <img src="./images/hero.png" style="object-fit: fill;width: stretch;position: absolute; z-index: 9999;top:34%">
+      <div class="hero-badge">高中全科 在线网课</div>
+      <div class="hero-bubble"></div>
+      <div class="hero-content">
+        <div class="hero-copy">
+          <h1 class="brand-title">高途教育</h1>
+          <div class="tag-stack">
+            <div class="tag">美国纽交所上市</div>
+            <div class="tag">10年+办学经验</div>
+            <div class="tag">汇集985/211师资</div>
+            <div class="tag">真人在线互动教学</div>
+            <div class="tag">家长实时监督效果</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="notebook note-1">
+      <h2 class="section-title">【高途名师】个性化课程</h2>
+      <p class="section-subtitle">满足不同学员需求</p>
+      <div class="subjects">
+        <span class="subject">数学</span>
+        <span class="subject">语文</span>
+        <span class="subject">英语</span>
+        <span class="subject">政治</span>
+        <span class="subject">历史</span>
+        <span class="subject">地理</span>
+        <span class="subject">生物</span>
+        <span class="subject">物理</span>
+        <span class="subject">化学</span>
+      </div>
+    </section>
+
+    <section class="notebook">
+      <div class="course-grid">
+        <article class="course-card">
+          <div class="photo-box course-photo">
+            <img src="./images/8.png" style="object-fit: fill;width: stretch;">
+          </div>
+          <div class="course-caption">高中在线1V1</div>
+          <p class="course-copy">
+            <b>课程特点：</b>
+            随时约课，专属老师只盯你一个人的进度和弱项
+          </p>
+          <button class="small-btn">咨询课程学费</button>
+        </article>
+        <article class="course-card">
+          <div class="photo-box course-photo">
+            <img src="./images/9.png" style="object-fit: fill;width: stretch;">
+          </div>
+          <div class="course-caption">高中在线班课</div>
+          <p class="course-copy">
+            <b>课程特点：</b>
+            名师资源跨地域共享，与同窗实时互动、PK学习，氛围更足
+          </p>
+          <button class="small-btn">咨询课程学费</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="notebook">
+      <h2 class="section-title"><span class="orange">在家就能学</span>上课超省心</h2>
+      <p style="margin-top: 6px; color: #777; font-size: 14px; text-align: center;">支持手机、IPAD、电脑，随时随地听课</p>
+      <div class="photo-box device-photo">
+        <img src="./images/7.png" style="object-fit: fill;width: stretch;">
+      </div>
+      <div class="feature-grid">
+        <div class="feature"><div><strong>直播课堂</strong><span>随时提问视频连麦</span></div></div>
+        <div class="feature"><div><strong>离线缓存</strong><span>不费流量随时随地学习</span></div></div>
+        <div class="feature"><div><strong>倍速播放</strong><span>自由切换学习速度</span></div></div>
+        <div class="feature"><div><strong>随时回放</strong><span>重点难点巩固学习</span></div></div>
+      </div>
+      <a class="cta" href="javascript:;">立即咨询</a>
+    </section>
+
+    <section class="notebook">
+      <h2 class="section-title">打破地域限制</h2>
+      <p class="section-subtitle">“一线城市名师”请回家</p>
+      <div class="teacher-photo">
+        <img src="./images/6.png" style="object-fit: fill;width: stretch;">
+      </div>
+      <ul class="teacher-list">
+        <li>来自北上教研组的教研精华</li>
+        <li>20余年深研考试试卷</li>
+        <li>一线城市的解题视角</li>
+        <li>打破地域限制</li>
+      </ul>
+      <a class="cta" href="javascript:;">立即咨询</a>
+    </section>
+
+    <section class="notebook">
+      <h2 class="ai-title">
+        <span class="main">AI智慧伴学</span>
+        <span class="sub"><span style="color:#f75810">1对1定制学</span> 孩子成长看的见</span>
+      </h2>
+      <div class="ai-ribbon">AI智慧伴学比你自己更懂你的弱项</div>
+      <div class="dash-grid">
+        <div style="position: relative;">
+          <div class="dash-head">学习时长</div>
+          <article class="dash-card">
+            <div class="dash-body">
+              <img src="./images/2.png" style="object-fit: fill;width:stretch">
+            </div>
+          </article>
+        </div>
+        <div style="position: relative;">
+          <div class="dash-head">课前预习</div>
+          <article class="dash-card">
+            <div class="dash-body">
+              <img src="./images/3.png" style="object-fit: fill;width:stretch">
+            </div>
+          </article>
+        </div>
+        <div style="position: relative;">
+          <div class="dash-head">答题正确率</div>
+          <article class="dash-card">
+            <div class="dash-body">
+              <img src="./images/4.png" style="object-fit: fill;width:stretch">
+            </div>
+          </article>
+        </div>
+        <div style="position: relative;">
+          <div class="dash-head">课堂比重</div>
+          <article class="dash-card">
+            <div class="dash-body">
+              <img src="./images/5.png" style="object-fit: fill;width:stretch">
+            </div>
+          </article>
+        </div>
+      </div>
+      <a class="cta" href="javascript:;">立即咨询</a>
+
+      <div class="ai-bottom">
+        <div class="orange-strip">班主任课前课后课中保姆式伴学</div>
+        <img src="./images/1.png" style="object-fit:fill;width: stretch;">
+        
+        <div class="service-list">
+          <div class="service-row" style="margin-top:0px"><b>课前强引导</b><span>上课提醒、引导预习、温故知新</span></div>
+          <div class="service-row"><b>课中强互动</b><span>激发学生思考，提炼梳理重难点</span></div>
+          <div class="service-row"><b>课后强反馈</b><span>个性化课堂报告，学情总结分析</span></div>
+          <div class="service-row"><b>课外强沟通</b><span>贴心答疑解惑，精准资料全放送</span></div>
+        </div>
+        <a class="cta" href="javascript:;">立即咨询</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+
+<!-- ================================================================= -->
+<!-- ★★★ 百度统计 / 爱番番沟通工具代码（必须放在 <head> 之后）★★★ -->
+<!-- ================================================================= -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?48925e86a0ee5f53acb94049f2d362b3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- ================================================================= -->
+
+<meta name="viewport" content="width=1200">
+<title>金博教育 - 全国百余家校区 1对1/全日制集训</title>
+<meta name="keywords" content="金博教育,一对一辅导,全日制集训,中高考冲刺,个性化学习">
+<meta name="description" content="金博教育 - 10年+办学经验，2000+教研师资，全国百余家校区，为您孩子提供专业的1对1及全日制集训服务。">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;color:#1E3A5F;background:#EAF2FC;-webkit-font-smoothing:antialiased}
+  a{text-decoration:none;color:inherit}
+  ul,li{list-style:none}
+  img{max-width:100%;display:block;border:0}
+
+  /* 通用 */
+  .wrap{width:1200px;margin:0 auto;position:relative}
+  .cta-btn{display:inline-block;padding:16px 60px;background:#ff460a;color:#fff;font-size:22px;font-weight:600;border-radius:40px;box-shadow:0 8px 18px rgba(255,120,30,.28);cursor:pointer;border:none;transition:transform .2s,box-shadow .2s;letter-spacing:2px}
+  .cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(255,120,30,.38)}
+  .section{padding:60px 0}
+  .section-title{text-align:center;font-size:50px;font-weight:800;color:#1E4FAC;line-height:1.4;margin-bottom:10px;letter-spacing:1px}
+  .section-title em{font-style:normal;color:#FF7A1F}
+  .section-sub{text-align:center;font-size:40px;font-weight:700;color:#1E3A5F;margin-bottom:40px}
+  .cta-center{text-align:center}
+
+  /* 顶部焦点图（整图） */
+  .hero-banner{width:100%;display:block}
+  .hero-banner img{width:100%;height:auto;display:block}
+
+  /* 导航条 */
+  .nav-bar{background:linear-gradient(180deg,#3B7FEA 0%,#2A68D5 100%);height:62px}
+  .nav-bar .wrap{height:100%;display:flex;align-items:center;justify-content:space-around}
+  .nav-bar a{color:#fff;font-size:20px;font-weight:600;padding:0 30px;position:relative;transition:opacity .2s}
+  .nav-bar a:hover{opacity:.85}
+  .nav-bar a+a::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:22px;background:rgba(255,255,255,.35)}
+
+  /* 问题清单 */
+  .problems{background:linear-gradient(180deg,#EAF2FC 0%,#F5F9FF 100%)}
+  .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 30px;max-width:980px;margin:40px auto 45px}
+  .problem-item{display:flex;align-items:center;background:linear-gradient(90deg,#F0F6FF 0%,#DEEBFF 100%);border-radius:14px;padding:22px 28px;box-shadow:0 4px 10px rgba(59,127,234,.08);transition:transform .25s}
+  .problem-item:hover{transform:translateY(-3px)}
+  .problem-num{flex-shrink:0;width:44px;height:44px;background:linear-gradient(135deg,#4D8CF0 0%,#2A68D5 100%);color:#fff;font-size:22px;font-weight:800;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-right:20px;box-shadow:0 4px 8px rgba(42,104,213,.3)}
+  .problem-text{font-size:30px;color:#1E3A5F;font-weight:500}
+
+  /* 班型 */
+  .classes{background:#fff}
+  .class-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:35px}
+  .class-card{border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(59,127,234,.12);transition:transform .25s,box-shadow .25s;background:#fff}
+  .class-card:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(59,127,234,.2)}
+  .class-img-box{height:380px;position:relative;overflow:hidden;background:#E8F0FC}
+  .class-img-box img{width:100%;height:100%;object-fit:fill}
+  .class-badge{position:absolute;left:0;bottom:0;width:100%;padding:14px 0;background:linear-gradient(90deg,rgba(59,127,234,.95) 0%,rgba(30,79,172,.95) 100%);color:#fff;text-align:center;font-size:22px;font-weight:700;letter-spacing:2px}
+  .class-desc{padding:22px 26px;font-size:30px;color:#5A6B85;line-height:1.8;text-align:center;background:#F5F9FF}
+
+  /* 师资 */
+  .teachers{background:linear-gradient(180deg,#F5F9FF 0%,#EAF2FC 100%)}
+  .teacher-tag-row{text-align:center;margin-bottom:30px}
+  .teacher-tag{display:inline-block;padding:10px 30px;background:linear-gradient(90deg,#FFA24C 0%,#FF7A1F 100%);color:#fff;font-size:20px;font-weight:700;border-radius:28px;margin-right:16px;vertical-align:middle}
+  .teacher-tag-desc{display:inline-block;font-size:30px;color:#1E3A5F;font-weight:600;vertical-align:middle}
+  .teacher-main{display:flex;gap:40px;align-items:stretch;margin-bottom:40px;background:#fff;border-radius:18px;padding:30px;box-shadow:0 8px 22px rgba(59,127,234,.12)}
+  .teacher-photo{flex:0 0 520px;height:320px;border-radius:14px;overflow:hidden;background:#E8F0FC}
+  .teacher-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .teacher-points{flex:1;display:flex;flex-direction:column;justify-content:center;gap:18px}
+  .teacher-point{display:flex;align-items:center;gap:16px;padding:16px 22px;background:linear-gradient(90deg,#2772ff 0%,#25a7ff 100%);border-radius:12px;border-left:4px solid #3B7FEA}
+  .teacher-point-icon{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#4D8CF0,#2A68D5);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700}
+  .teacher-point-text{font-size:17px;color:white;font-weight:500;line-height:1.5}
+
+  /* 六步服务 */
+  .service{background:#fff}
+  .service-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-bottom:40px}
+  .service-card{text-align:center;padding:30px 24px;background:linear-gradient(180deg,#F5F9FF 0%,#EAF2FC 100%);border-radius:16px;box-shadow:0 4px 14px rgba(59,127,234,.08);transition:transform .25s}
+  .service-card:hover{transform:translateY(-5px)}
+  .service-icon{width:80px;height:80px;margin:0 auto 18px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(59,127,234,.15);overflow:hidden}
+  .service-icon img{width:46px;height:46px;object-fit:contain}
+  .service-title{font-size:22px;font-weight:700;color:#2772ff;margin-bottom:14px;line-height:1.4}
+  .service-text{font-size:20px;color:#5A6B85;line-height:1.75;text-align:left;padding:0 8px}
+
+  /* 循环流程图（整图） */
+  .service-flow{margin:20px auto 40px;display:flex;justify-content:center;max-width:900px}
+  .service-flow img{max-width:100%;height:auto;display:block}
+
+  /* 校区 */
+  .campus{background:linear-gradient(180deg,#EAF2FC 0%,#DCE9FC 100%)}
+  .city-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:14px;max-width:1100px;margin:0 auto 40px}
+  .city-tag{padding:14px 0;background:#fff;border:1px solid #C7DCF5;border-radius:10px;text-align:center;font-size:16px;color:#1E4FAC;font-weight:600;cursor:pointer;transition:all .2s;box-shadow:0 2px 6px rgba(59,127,234,.08)}
+  .city-tag:hover{background:linear-gradient(90deg,#4D8CF0,#2A68D5);color:#fff;border-color:transparent;transform:translateY(-2px)}
+
+  /* 页脚 */
+  .footer{background:#1E3A5F;color:rgba(255,255,255,.7);text-align:center;padding:24px 0;font-size:14px;line-height:1.8}
+  .footer a{color:rgba(255,255,255,.8);margin:0 8px}
+
+  /* 固定右侧咨询 */
+  .float-cta{position:fixed;right:20px;bottom:80px;z-index:99;display:flex;flex-direction:column;gap:10px}
+  .float-cta a{width:60px;height:60px;background:linear-gradient(135deg,#FFA24C,#FF7A1F);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(255,120,30,.4);font-size:12px;text-align:center;line-height:1.2;font-weight:600;cursor:pointer}
+</style>
+</head>
+<body>
+
+<!-- ================================================================= -->
+<!-- 【图片1 · 顶部焦点图 / Banner · 整张图】                            -->
+<!-- 图片路径：images/pc-banner.jpg                                      -->
+<!-- 建议尺寸：1920 × 500 像素（整屏大图，文字/人像/气泡都在图里）       -->
+<!-- 图片内容：浅蓝渐变背景 + "1对1/全日制集训" 胶囊标签 +               -->
+<!--          "金博教育" 大标题 + 三个小标签（全国百余家校区/10年+办学经 -->
+<!--          验/2000+教研师资）+ 右侧女老师人像 + 四周装饰气泡圆        -->
+<!-- ================================================================= -->
+<section class="hero-banner">
+  <a href="javascript:openChat();">
+    <img src="images/1.png" alt="金博教育 - 1对1 / 全日制集训 - 全国百余家校区">
+  </a>
+</section>
+
+<!-- 导航条 -->
+<nav class="nav-bar">
+  <div class="wrap">
+    <a href="#problems">个性化学习</a>
+    <a href="#teachers">师资力量</a>
+    <a href="#classes">热门班型</a>
+    <a href="#campus">校区查询</a>
+  </div>
+</nav>
+
+<!-- 问题清单 -->
+<section class="section problems" id="problems">
+  <div class="wrap">
+    <h2 class="section-title">您家孩子是否也有<em>下面这些问题</em>？</h2>
+    <div class="problem-grid">
+      <div class="problem-item"><div class="problem-num">1</div><div class="problem-text">苦学无果 效率低下</div></div>
+      <div class="problem-item"><div class="problem-num">2</div><div class="problem-text">基础还行 突破瓶颈难</div></div>
+      <div class="problem-item"><div class="problem-num">3</div><div class="problem-text">基础薄弱 一做就错</div></div>
+      <div class="problem-item"><div class="problem-num">4</div><div class="problem-text">考试粗心 失误不断</div></div>
+      <div class="problem-item"><div class="problem-num">5</div><div class="problem-text">缺乏技巧 无法应变</div></div>
+      <div class="problem-item"><div class="problem-num">6</div><div class="problem-text">心态紧张 考场发挥失常</div></div>
+    </div>
+    <div class="cta-center"><a class="cta-btn" href="javascript:openChat();">找老师聊</a></div>
+  </div>
+</section>
+
+<!-- 班型 -->
+<section class="section classes" id="classes">
+  <div class="wrap">
+    <h2 class="section-title">金博教育<em>多样化班型</em></h2>
+    <p class="section-sub">总有一个帮你对症解决</p>
+    <div class="class-grid">
+
+      <div class="class-card">
+        <div class="class-img-box">
+          <!-- ============================================= -->
+          <!-- 【图片2 · 1对1课程场景图】                     -->
+          <!-- 图片路径：images/class-1on1.jpg                -->
+          <!-- 建议尺寸：560 × 280 像素                        -->
+          <!-- 图片内容：老师单独辅导一名学生的实拍场景        -->
+          <!-- ============================================= -->
+          <img src="images/2.png" alt="初高中1对1课程">
+          <!-- <div class="class-badge">初高中1对1课程</div> -->
+        </div>
+        <div class="class-desc">定制学习方案 直击薄弱环节<br>及时追踪答疑 适合不同学员</div>
+      </div>
+
+      <div class="class-card">
+        <div class="class-img-box">
+          <!-- ============================================= -->
+          <!-- 【图片3 · 全日制集训场景图】                   -->
+          <!-- 图片路径：images/class-fulltime.jpg            -->
+          <!-- 建议尺寸：560 × 280 像素                        -->
+          <!-- 图片内容：教室里多名学生集中学习、统一管理的场景 -->
+          <!-- ============================================= -->
+          <img src="images/3.png" alt="初高中全日制集训">
+          <!-- <div class="class-badge">初高中全日制集训</div> -->
+        </div>
+        <div class="class-desc">封闭式集训 军事化管理<br>自编教材资料 适合基础差学员</div>
+      </div>
+
+    </div>
+    <div class="cta-center"><a class="cta-btn" href="javascript:openChat();">了解课程详情</a></div>
+  </div>
+</section>
+
+<!-- 师资 -->
+<section class="section teachers" id="teachers">
+  <div class="wrap">
+    <h2 class="section-title">严选师资<em>针对性教研</em></h2>
+    <div class="teacher-tag-row" style="margin-top:24px">
+      <span class="teacher-tag">严格筛选</span>
+      <span class="teacher-tag-desc">讲知识更讲技巧 高效学习</span>
+    </div>
+    <div class="teacher-main">
+
+      <div class="teacher-photo">
+        <!-- ============================================= -->
+        <!-- 【图片4 · 师资团队合影】                       -->
+        <!-- 图片路径：images/teachers-group.jpg            -->
+        <!-- 建议尺寸：520 × 320 像素                        -->
+        <!-- 图片内容：几位老师手叠在一起 / 团队合影           -->
+        <!-- ============================================= -->
+        <img src="images/4.png" alt="金博教育师资团队">
+      </div>
+
+      <div class="teacher-points">
+        <div class="teacher-point">
+          <div class="teacher-point-icon">✓</div>
+          <div class="teacher-point-text">5%简历录取率 → 试讲最懂 → 持续培训</div>
+        </div>
+        <div class="teacher-point">
+          <div class="teacher-point-icon">✓</div>
+          <div class="teacher-point-text">多数毕业于师范类院校或985/211高校</div>
+        </div>
+        <div class="teacher-point">
+          <div class="teacher-point-icon">✓</div>
+          <div class="teacher-point-text">自研"AI金博"系统，生成个性化图谱</div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-center"><a class="cta-btn" href="javascript:openChat();">了解师资详情</a></div>
+  </div>
+</section>
+
+<!-- 六步服务 -->
+<section class="section service">
+  <div class="wrap">
+    <h2 class="section-title">金博<em>6步服务体系</em></h2>
+    <p class="section-sub">孩子进步看得见</p>
+
+    <div class="service-cards">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <!-- ============================================= -->
+          <!-- 【图片5 · 图标 · 贴心教学服务】                 -->
+          <!-- 图片路径：images/icon-service.png              -->
+          <!-- 建议尺寸：92 × 92 像素（透明 PNG）              -->
+          <!-- ============================================= -->
+          <img src="images/5.png" alt="贴心教学服务">
+        </div>
+        <div class="service-title">贴心的<br/>教学服务</div>
+        <div class="service-text">讲、练、考，改有机结合<br>让学生当堂吸收疑惑<br>课下复习时巩固成果</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <!-- ============================================= -->
+          <!-- 【图片6 · 图标 · 问题不拖延】                   -->
+          <!-- 图片路径：images/icon-qa.png                   -->
+          <!-- 建议尺寸：92 × 92 像素（透明 PNG）              -->
+          <!-- ============================================= -->
+          <img src="images/6.png" alt="问题不拖延及时解答">
+        </div>
+        <div class="service-title">问题不拖延<br>及时解答</div>
+        <div class="service-text">每天固定答疑时间<br>让学生随时及时问问题<br>做到问题不过夜</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <!-- ============================================= -->
+          <!-- 【图片7 · 图标 · 大数据分析】                   -->
+          <!-- 图片路径：images/icon-data.png                 -->
+          <!-- 建议尺寸：92 × 92 像素（透明 PNG）              -->
+          <!-- ============================================= -->
+          <img src="images/7.png" alt="大数据分析指导学习方向">
+        </div>
+        <div class="service-title">大数据分析指导<br>学习方向<br>提高学习效率</div>
+        <div class="service-text">每个学员月底收到一份<br>含有全维度建议和制定的<br>提升事项表及分析表</div>
+      </div>
+
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- 【图片8 · 六步循环流程图 · 整张图】                                 -->
+    <!-- 图片路径：images/pc-flow.png                                        -->
+    <!-- 建议尺寸：820 × 360 像素（透明 PNG 或 JPG）                          -->
+    <!-- 图片内容：蓝橙双色椭圆环 + 中间"记得住/学得好"两个渐变圆 +           -->
+    <!--          环上 6 个节点：1.摸底诊断 / 2.定制方案 / 3.笔记 /           -->
+    <!--          4.自测 / 5.改错 / 6.消化复习                              -->
+    <!-- ================================================================= -->
+    <div class="service-flow">
+      <img src="images/8.png" alt="金博教育6步服务体系流程图">
+    </div>
+
+    <div class="cta-center"><a class="cta-btn" href="javascript:openChat();">立即咨询</a></div>
+  </div>
+</section>
+
+<!-- 校区 -->
+<section class="section campus" id="campus">
+  <div class="wrap">
+    <h2 class="section-title">全国<em>百余家校区</em></h2>
+    <p class="section-sub">就近选学习更方便</p>
+    <div class="city-grid">
+      <div class="city-tag">北京</div><div class="city-tag">长沙</div><div class="city-tag">成都</div>
+      <div class="city-tag">重庆</div><div class="city-tag">天津</div><div class="city-tag">东莞</div>
+      <div class="city-tag">佛山</div><div class="city-tag">广州</div>
+      <div class="city-tag">哈尔滨</div><div class="city-tag">杭州</div><div class="city-tag">合肥</div>
+      <div class="city-tag">济南</div><div class="city-tag">昆明</div><div class="city-tag">南昌</div>
+      <div class="city-tag">宁波</div><div class="city-tag">青岛</div>
+      <div class="city-tag">上海</div><div class="city-tag">沈阳</div><div class="city-tag">石家庄</div>
+      <div class="city-tag">苏州</div><div class="city-tag">太原</div><div class="city-tag">武汉</div>
+      <div class="city-tag">西安</div><div class="city-tag">郑州</div>
+      <div class="city-tag">厦门</div><div class="city-tag">无锡</div><div class="city-tag">南京</div>
+      <div class="city-tag">深圳</div><div class="city-tag">兰州</div><div class="city-tag">福州</div>
+      <div class="city-tag">南宁</div><div class="city-tag">贵阳</div>
+    </div>
+    <div class="cta-center"><a class="cta-btn" href="javascript:openChat();">立即查看最近的校区</a></div>
+  </div>
+</section>
+
+<!-- 固定咨询 -->
+<div class="float-cta">
+  <a href="javascript:openChat();" title="在线咨询">在线<br>咨询</a>
+</div>
+
+<!-- 页脚 -->
+<footer class="footer">
+  <div>© 金博教育 版权所有 &nbsp;|&nbsp; 全国免费咨询热线：400-XXX-XXXX</div>
+  <div style="margin-top:6px"><a href="#">关于我们</a>|<a href="#">联系我们</a>|<a href="#">隐私政策</a></div>
+</footer>
+
+<script>
+  // 唤起爱番番在线沟通弹窗：hm.js 加载完成后通常自带全局方法
+  function openChat(){
+    if (typeof window.nb === 'function')        { window.nb(); return; }            // 爱番番
+    if (window._hmt && typeof _hmt.push === 'function') { _hmt.push(['_trackEvent','openChat','click']); }
+    // 兜底：打开公司客服咨询地址
+    window.open('#','_blank');
+  }
+
+  // 平滑滚动
+  document.querySelectorAll('.nav-bar a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t) t.scrollIntoView({behavior:'smooth'});
+    });
+  });
+</script>
+
+</body>
+</html>

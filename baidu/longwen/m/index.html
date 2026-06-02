@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>龙文教育移动端落地页</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #eeeeee;
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      --u: calc(100cqw / 1080);
+      container-type: inline-size;
+      position: relative;
+      width: min(100vw, 540px);
+      overflow: hidden;
+      color: #fff;
+      background: #fff9ef;
+    }
+
+    .hero {
+      position: relative;
+      height: calc(1035 * var(--u));
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(255, 225, 112, .18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 225, 112, .18) 1px, transparent 1px),
+        radial-gradient(circle at 34% 30%, rgba(255, 186, 35, .23), transparent 25%),
+        linear-gradient(180deg, #f64220 0%, #ff7b00 100%);
+      background-size:
+        calc(90 * var(--u)) calc(90 * var(--u)),
+        calc(90 * var(--u)) calc(90 * var(--u)),
+        auto,
+        auto;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: calc(-65 * var(--u));
+      right: calc(-65 * var(--u));
+      bottom: calc(-82 * var(--u));
+      height: calc(185 * var(--u));
+      background:
+        radial-gradient(rgba(0, 0, 0, .035) .8px, transparent .9px) 0 0 / calc(7 * var(--u)) calc(7 * var(--u)),
+        #fff9ef;
+      border-radius: 0 0 50% 50% / 0 0 100% 100%;
+      transform: rotate(1.5deg);
+      z-index: 3;
+    }
+
+    .hero-student {
+      position: absolute;
+      right: 0;
+      top: calc(145 * var(--u));
+      width: calc(360 * var(--u));
+      height: calc(900 * var(--u));
+      object-fit: cover;
+      z-index: 2;
+    }
+
+    .hero-copy {
+      position: absolute;
+      left: calc(90 * var(--u));
+      top: calc(276 * var(--u));
+      width: calc(700 * var(--u));
+      z-index: 4;
+      text-shadow: 0 calc(4 * var(--u)) calc(1 * var(--u)) rgba(164, 41, 0, .08);
+    }
+
+    .hero-kicker {
+      margin: 0;
+      font-size: calc(83 * var(--u));
+      line-height: .98;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .hero-brand {
+      margin: calc(25 * var(--u)) 0 calc(24 * var(--u));
+      font-size: calc(145 * var(--u));
+      line-height: .83;
+      font-weight: 900;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .hero-sub {
+      margin: 0;
+      font-size: calc(46 * var(--u));
+      line-height: 1;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .hero-tags {
+      display: grid;
+      grid-template-columns: calc(300 * var(--u)) calc(300 * var(--u));
+      gap: calc(22 * var(--u)) calc(46 * var(--u));
+      margin-top: calc(35 * var(--u));
+      width: calc(650 * var(--u));
+    }
+
+    .tag {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(50 * var(--u));
+      border-radius: calc(28 * var(--u));
+      background: #ffff6b;
+      color: #ff471c;
+      font-size: calc(29 * var(--u));
+      font-weight: 900;
+      /* box-shadow: inset 0 calc(-2 * var(--u)) 0 rgba(255, 170, 0, .25); */
+      white-space: nowrap;
+      letter-spacing: 0.2cqw;
+    }
+
+    .star {
+      position: absolute;
+      z-index: 4;
+      color: #ffe500;
+      font-size: calc(55 * var(--u));
+      line-height: 1;
+      text-shadow:
+        0 calc(3 * var(--u)) 0 #ff9d00,
+        0 0 calc(10 * var(--u)) rgba(255, 236, 0, .9);
+    }
+
+    .star.one {
+      right: calc(375 * var(--u));
+      top: calc(130 * var(--u));
+      font-size: calc(45 * var(--u));
+    }
+
+    .star.two {
+      left: calc(350 * var(--u));
+      top: calc(790 * var(--u));
+    }
+
+    .tiny-code {
+      position: absolute;
+      left: calc(215 * var(--u));
+      top: calc(935 * var(--u));
+      z-index: 4;
+      color: rgba(255, 255, 255, .76);
+      font-size: calc(12 * var(--u));
+      letter-spacing: calc(17 * var(--u));
+    }
+
+    .course {
+      position: relative;
+      min-height: calc(725 * var(--u));
+      padding: calc(68 * var(--u)) calc(48 * var(--u)) calc(70 * var(--u));
+      color: #202329;
+      background:
+        radial-gradient(rgba(0, 0, 0, .052) .75px, transparent .9px) 0 0 / calc(7 * var(--u)) calc(7 * var(--u)),
+        #fff9ef;
+    }
+
+    .section-title {
+      position: relative;
+      z-index: 2;
+      display: inline-block;
+      margin: 0;
+      color: #272a2e;
+      font-size: calc(60 * var(--u));
+      line-height: .98;
+      font-weight: 900;
+      font-style: italic;
+      letter-spacing: 0;
+    }
+
+    .section-title::before {
+      content: "★";
+      display: inline-block;
+      margin-right: calc(12 * var(--u));
+      color: #ffe600;
+      font-size: calc(48 * var(--u));
+      font-style: normal;
+      text-shadow: 0 calc(3 * var(--u)) 0 #ff9d00;
+      transform: translateY(calc(-8 * var(--u)));
+    }
+
+    .hot {
+      position: absolute;
+      left: calc(200 * var(--u));
+      top: calc(-10 * var(--u));
+      color: transparent;
+      -webkit-text-stroke: calc(1.5 * var(--u)) #ff7b1c;
+      font-size: calc(138 * var(--u));
+      font-weight: 900;
+      font-style: normal;
+      opacity: .9;
+      z-index: 1;
+    }
+
+    .title-underline {
+      width: calc(560 * var(--u));
+      height: calc(28 * var(--u));
+      margin: calc(12 * var(--u)) 0 calc(36 * var(--u)) calc(58 * var(--u));
+      border-radius: calc(18 * var(--u));
+      background: linear-gradient(90deg, #ff8000, #ff3b12);
+      box-shadow: 0 calc(4 * var(--u)) calc(5 * var(--u)) rgba(196, 54, 0, .3);
+    }
+
+    .diploma {
+      position: absolute;
+      right: calc(82 * var(--u));
+      top: calc(24 * var(--u));
+      width: calc(330 * var(--u));
+      height: calc(255 * var(--u));
+      object-fit: contain;
+    }
+
+    .course-slogan {
+      margin: 0 0 calc(54 * var(--u)) calc(40 * var(--u));
+      color: #ff7900;
+      font-size: calc(48 * var(--u));
+      line-height: 1.1;
+      letter-spacing: calc(3 * var(--u));
+      white-space: nowrap;
+    }
+
+    .course-card {
+      display: grid;
+      grid-template-columns: calc(123 * var(--u)) 1fr 1fr 1fr;
+      align-items: center;
+      min-height: calc(128 * var(--u));
+      margin-bottom: calc(38 * var(--u));
+      padding: 0 calc(34 * var(--u));
+      border-radius: calc(35 * var(--u));
+      background: #ff7700;
+      color: #fff;
+    }
+
+    .course-card:last-of-type {
+      margin-bottom: calc(70 * var(--u));
+    }
+
+    .course-name {
+      font-size: calc(40 * var(--u));
+      line-height: .95;
+      font-weight: 900;
+      white-space: pre-line;
+    }
+
+    .course-card:first-of-type .course-name {
+      font-size: calc(66 * var(--u));
+    }
+
+    .course-desc {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(78 * var(--u));
+      padding: 0 calc(18 * var(--u));
+      border-right: calc(2 * var(--u)) solid rgba(255, 255, 255, .82);
+      text-align: center;
+      font-size: calc(26 * var(--u));
+      line-height: 1.28;
+      font-weight: 800;
+    }
+
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(590 * var(--u));
+      height: calc(105 * var(--u));
+      margin: 0 auto;
+      border-radius: calc(58 * var(--u));
+      color: #fff;
+      background: linear-gradient(180deg, #ffb148 0%, #ff7600 100%);
+      font-size: calc(47 * var(--u));
+      font-weight: 400;
+      text-decoration: none;
+      letter-spacing: 0.2cqw;
+    }
+
+    .management {
+      position: relative;
+      min-height: calc(1058 * var(--u));
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(255, 112, 0, .08) 0%, rgba(255, 68, 24, .95) 54%, rgba(255, 61, 17, .96) 100%),
+        linear-gradient(180deg, #ffd277 0%, #ff8200 100%);
+    }
+
+    .management::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(8, 54, 57, .65) 0%, rgba(255, 170, 0, .36) 38%, rgba(244, 54, 21, .9) 100%);
+      z-index: 1;
+    }
+
+    .student-management {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: calc(335 * var(--u));
+      height: calc(760 * var(--u));
+      object-fit: cover;
+      z-index: 2;
+    }
+
+    .management-title {
+      position: absolute;
+      left: calc(122 * var(--u));
+      top: calc(142 * var(--u));
+      z-index: 3;
+      margin: 0;
+      color: #fff;
+      font-size: calc(61 * var(--u));
+      line-height: 1;
+      font-weight: 900;
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    .management-title::before {
+      content: "★";
+      margin-right: calc(12 * var(--u));
+      color: #ffe700;
+      font-style: normal;
+      text-shadow: 0 calc(3 * var(--u)) 0 #ff9d00;
+    }
+
+    .yellow-line {
+      position: absolute;
+      left: calc(120 * var(--u));
+      top: calc(232 * var(--u));
+      z-index: 3;
+      width: calc(450 * var(--u));
+      height: calc(28 * var(--u));
+      border-radius: calc(20 * var(--u));
+      background: #fff000;
+    }
+
+    .management-subtitle {
+      position: absolute;
+      right: calc(54 * var(--u));
+      top: calc(136 * var(--u));
+      z-index: 3;
+      margin: 0;
+      color: #fff;
+      font-size: calc(43 * var(--u));
+      line-height: 1.25;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .feature-panel {
+      position: absolute;
+      right: 0;
+      bottom: calc(112 * var(--u));
+      z-index: 4;
+      width: calc(745 * var(--u));
+      min-height: calc(590 * var(--u));
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: calc(68 * var(--u)) calc(64 * var(--u));
+      padding: calc(75 * var(--u)) calc(68 * var(--u)) calc(62 * var(--u)) calc(88 * var(--u));
+      border-radius: calc(18 * var(--u)) 0 0 calc(18 * var(--u));
+      background: #f94924;
+    }
+
+    .feature {
+      color: #fff;
+    }
+
+    .feature-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: calc(18 * var(--u));
+      align-items: center;
+      margin-bottom: calc(28 * var(--u));
+    }
+
+    .num {
+      font-size: calc(74 * var(--u));
+      line-height: .9;
+      font-weight: 900;
+    }
+
+    .feature-title {
+      font-size: calc(43 * var(--u));
+      line-height: 1.04;
+      font-weight: 900;
+      white-space: pre-line;
+    }
+
+    .feature p {
+      margin: 0;
+      font-size: calc(31 * var(--u));
+      line-height: 1.28;
+      font-weight: 500;
+    }
+
+    .teachers {
+      position: relative;
+      min-height: calc(1012 * var(--u));
+      overflow: hidden;
+      color: #272a2e;
+      background: linear-gradient(180deg, #ffffff 0%, #eefbff 60%, #eaf8fb 100%);
+    }
+
+    .teachers .section-title {
+      /* position: absolute;
+      left: calc(80 * var(--u));
+      top: calc(92 * var(--u)); */
+      font-size: calc(70 * var(--u));
+      z-index: 4;
+      margin-top: 10cqw;
+      margin-left: 10cqw;
+    }
+
+    .teachers .title-underline {
+      /* position: absolute;
+      left: calc(100 * var(--u));
+      top: calc(225 * var(--u)); */
+      z-index: 4;
+      width: calc(280 * var(--u));
+      margin-left: 15cqw;
+    }
+
+    .teachers-img {
+      /* position: absolute; */
+      /* left: 0; */
+      /* bottom: 0; */
+      width: calc(825 * var(--u));
+      height: calc(580 * var(--u));
+      object-fit: cover;
+      z-index: 2;
+    }
+
+    .teacher-bars {
+      position: absolute;
+      right: 0;
+      bottom: calc(70 * var(--u));
+      z-index: 5;
+      width: calc(480 * var(--u));
+    }
+
+    .teacher-bar {
+      display: grid;
+      grid-template-columns: calc(105 * var(--u)) 1fr;
+      align-items: center;
+      height: calc(68 * var(--u));
+      margin-bottom: calc(18 * var(--u));
+      padding-left: calc(30 * var(--u));
+      background: rgba(255, 119, 0, .96);
+      color: #fff;
+      font-size: calc(38 * var(--u));
+      line-height: 1;
+      font-weight: 900;
+      box-shadow: calc(-9 * var(--u)) calc(8 * var(--u)) 0 rgba(255, 119, 0, .32);
+    }
+
+    .teacher-bar b {
+      font-size: calc(38 * var(--u));
+    }
+
+    @supports not (container-type: inline-size) {
+      .page {
+        --u: calc(min(100vw, 540px) / 1080);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <img class="hero-student" src="images/hero.png" alt="">
+      <span class="star one">✦</span>
+      <span class="star two">✦</span>
+      <div class="hero-copy">
+        <p class="hero-kicker">专注中高考集训</p>
+        <h1 class="hero-brand">龙文教育</h1>
+        <p class="hero-sub">始创于1999年&nbsp;&nbsp;全国100+校区</p>
+        <div class="hero-tags">
+          <div class="tag">一对一</div>
+          <div class="tag">精品小班课(5-10人)</div>
+          <div class="tag">艺考文化课集训</div>
+          <div class="tag">中高考集训营</div>
+        </div>
+      </div>
+      <div class="tiny-code">QIANTUJIAOYU</div>
+    </section>
+
+    <section class="course">
+      <img class="diploma" src="images/diploma-placeholder.png" alt="">
+      <div class="hot">HOT</div>
+      <h2 class="section-title">热门课程</h2>
+      <div class="title-underline"></div>
+      <p class="course-slogan">本地化教材｜贴合考情｜多班型可选</p>
+
+      <div class="course-card">
+        <div class="course-name">1V1</div>
+        <div class="course-desc">定制专属学习方案<br>针对性解决薄弱项</div>
+        <div class="course-desc">聚焦单一学生<br>实时观察学习状态</div>
+        <div class="course-desc" style="border-right: none;">无需迁就他人学习进度<br>学习节奏自己做主</div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-name">中高考<br>集训营</div>
+        <div class="course-desc">入学测评 分层教学<br>专项补漏 名师督学</div>
+        <div class="course-desc">覆盖全科 吃住一体<br>一站式教学服务</div>
+        <div class="course-desc" style="border-right: none;">本土资深师资<br>课前课后答疑 问题不隔夜</div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-name">艺考<br>文化课<br>辅导</div>
+        <div class="course-desc">1对1个性化教学<br>AI辅助教学系统</div>
+        <div class="course-desc">家门口的1对1<br>社区化布局</div>
+        <div class="course-desc" style="border-right: none;">“6对1/多位一体”服务团队<br>学情诊断服务定制薄弱点</div>
+      </div>
+
+      <a class="cta" href="javascript:void(0)">咨询课程详情</a>
+    </section>
+
+    <section>
+      <img src="./images/1.png" style="object-fit: fill; width: stretch;"
+    </section>
+
+    <section class="teachers">
+      <h2 class="section-title">严选优秀师资</h2>
+      <div class="title-underline"></div>
+      <img class="teachers-img" src="images/2.png" style="object-fit: fill;width: stretch;">
+      <a class="cta" href="javascript:void(0)" style="margin: 4cqh  auto;">咨询课程详情</a>
+    </section>
+  </main>
+</body>
+</html>

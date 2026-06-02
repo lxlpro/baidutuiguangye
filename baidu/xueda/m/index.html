@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>学大教育移动端落地页</title>
+  <style>
+    :root {
+      --orange: #ff4618;
+      --orange-deep: #f33a0e;
+      --orange-soft: #ff7b19;
+      --cream: #fff0e7;
+      --yellow: #ffdd8e;
+      --text: #3b2a24;
+      --muted: #77645e;
+      --white: #fff;
+      --page-w: 375px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: #f4f4f4;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      color: var(--text);
+      background: #f4f4f4;
+    }
+
+    .page {
+      /* width: min(100vw, var(--page-w)); */
+      min-height: 100vh;
+      margin: 0 auto;
+      overflow: hidden;
+      background: var(--orange);
+    }
+
+    button {
+      border: 0;
+      font: inherit;
+      color: inherit;
+      background: none;
+    }
+
+    .shot {
+      background-image: url("移动端.png");
+      background-repeat: no-repeat;
+      background-size: min(100vw, var(--page-w)) auto;
+    }
+
+    .hero {
+      position: relative;
+      height: 272px;
+      background: linear-gradient(180deg, #ffd58e 0%, #ffba54 76%, var(--orange) 76%);
+    }
+
+    .hero-card {
+      position: absolute;
+      inset: 24px 14px auto 14px;
+      height: 235px;
+      overflow: hidden;
+      border-left: 9px solid #ff6a27;
+      border-top: 5px solid #ff6a27;
+      border-top-left-radius: 21px;
+      border-top-right-radius: 18px;
+      background:
+        radial-gradient(145% 65% at 28% 100%, rgba(255, 200, 94, .82) 0 28%, transparent 29%),
+        linear-gradient(155deg, #fff5ec 0 61%, #ffd679 62% 73%, #fff1e9 74%);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      left: -60px;
+      right: -42px;
+      bottom: -34px;
+      height: 92px;
+      border-radius: 50% 50% 0 0;
+      background: #ff4517;
+      transform: rotate(-4deg);
+      transform-origin: left bottom;
+      z-index: 2;
+    }
+
+    .hero-copy {
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      z-index: 3;
+      color: #512119;
+      font-weight: 900;
+    }
+
+    .hero-kicker {
+      margin-bottom: 7px;
+      font-size: clamp(16px, 4.7vw, 20px);
+      line-height: 1;
+      letter-spacing: -1px;
+      color: #4a1f17;
+      text-shadow: 0 2px 0 rgba(255, 255, 255, .75);
+    }
+
+    .hero-kicker em {
+      color: #f24a1f;
+      font-style: normal;
+      font-size: 1.42em;
+    }
+
+    .hero-title {
+      color: #fa4514;
+      font-size: clamp(36px, 11.5vw, 52px);
+      line-height: .96;
+      letter-spacing: -3px;
+      text-shadow: 0 4px 0 rgba(255, 215, 114, .95);
+      white-space: nowrap;
+    }
+
+    .hero-subtitle {
+      display: inline-block;
+      margin-top: 11px;
+      padding: 0 5px;
+      color: #52231a;
+      font-size: clamp(15px, 4.5vw, 20px);
+      font-weight: 800;
+      line-height: 1.1;
+      background: rgba(255, 255, 255, .72);
+      white-space: nowrap;
+    }
+
+    .hero-teacher {
+      position: absolute;
+      right: -2px;
+      bottom: 24px;
+      z-index: 3;
+      width: 151px;
+      height: 194px;
+      background-position: right -28px top -32px;
+      background-size: 375px auto;
+    }
+
+    .float-tab {
+      position: absolute;
+      right: -3px;
+      top: 29px;
+      width: 20px;
+      height: 31px;
+      border-radius: 11px 0 0 0;
+      background: var(--orange);
+      z-index: 4;
+    }
+
+    .entry {
+      position: relative;
+      padding: 17px 9px 34px;
+      background: var(--orange);
+    }
+
+    .entry-panel {
+      position: relative;
+      padding: 29px 17px 24px;
+      min-height: 290px;
+      border: 10px solid #ffb054;
+      border-radius: 11px;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(255, 222, 158, .8);
+      border-top: 20px solid #ffb054;
+    }
+
+    .entry-panel::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      top: -21px;
+      height: 17px;
+      background:
+        radial-gradient(circle at 9px 0px, var(--orange) 0 10px, transparent 7.5px) 0 0 / 39px 10px repeat-x;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px 9px;
+    }
+
+    .quick {
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      border-radius: 9px;
+      color: #ff6244;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.15;
+      background: #fff2e9;
+    }
+
+    .quick:nth-child(2),
+    .quick:nth-child(5) {
+      color: #0fbfb0;
+      background: #e6fbf4;
+    }
+
+    .quick:nth-child(3),
+    .quick:nth-child(6) {
+      color: #ff565d;
+      background: #edf8ff;
+    }
+
+    .mini-icon {
+      position: relative;
+      width: 21px;
+      height: 21px;
+      flex: 0 0 21px;
+    }
+
+    .mini-icon::before,
+    .mini-icon::after {
+      content: "";
+      position: absolute;
+      border-radius: 4px;
+      background: currentColor;
+    }
+
+    .i-pencil::before { width: 20px; height: 7px; left: 1px; top: 7px; transform: rotate(-42deg); opacity: .55; }
+    .i-pencil::after { width: 8px; height: 8px; right: 0; top: 1px; border-radius: 50%; opacity: .24; }
+    .i-user::before { width: 12px; height: 12px; left: 4px; top: 1px; border-radius: 50%; opacity: .22; }
+    .i-user::after { width: 20px; height: 9px; left: 0; bottom: 1px; border-radius: 12px 12px 4px 4px; opacity: .45; }
+    .i-screen::before { width: 21px; height: 14px; left: 0; top: 2px; border-radius: 2px; opacity: .58; }
+    .i-screen::after { width: 11px; height: 3px; left: 5px; bottom: 1px; opacity: .35; }
+    .i-compass::before { width: 19px; height: 19px; left: 1px; top: 1px; border-radius: 50%; opacity: .22; }
+    .i-compass::after { width: 4px; height: 21px; left: 9px; top: 0; border-radius: 5px; transform: rotate(15deg); opacity: .52; }
+    .i-flower::before { width: 20px; height: 20px; left: 1px; top: 1px; border-radius: 50%; opacity: .2; }
+    .i-flower::after { width: 9px; height: 9px; left: 6px; top: 6px; border-radius: 50%; opacity: .55; }
+
+    .route {
+      position: relative;
+      height: 45px;
+      margin: 9px 32px 12px;
+      border-top: 2px dotted #d6d6d6;
+    }
+
+    .route span {
+      position: absolute;
+      top: -5px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #bfbfbf;
+    }
+
+    .route span:nth-child(1) { left: 0; }
+    .route span:nth-child(2) { left: 50%; transform: translateX(-50%); }
+    .route span:nth-child(3) { right: 0; }
+
+    .route i {
+      position: absolute;
+      left: 50%;
+      top: 4px;
+      width: 2px;
+      height: 28px;
+      border-left: 2px dotted #cfcfcf;
+    }
+
+    .route i::after {
+      content: "";
+      position: absolute;
+      left: -6px;
+      bottom: -5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #bfbfbf;
+    }
+
+    .cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 51px;
+      border: 3px solid #fff2bd;
+      border-radius: 28px;
+      color: #fff;
+      font-size: 17px;
+      font-weight: 900;
+      letter-spacing: .3px;
+      background: linear-gradient(90deg, #ff420e 0%, #ff7420 54%,#ffb126 100%);
+      box-shadow: inset 0 4px 6px rgba(255, 255, 255, .52), 0 5px 9px rgba(188, 39, 0, .2);
+      letter-spacing: 1px;
+    }
+
+    .section {
+      padding: 0 22px;
+      background: var(--orange);
+    }
+
+    .title {
+      color: #fff;
+      text-align: center;
+      font-size: clamp(25px, 8.4vw, 34px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      text-shadow: 0 2px 0 rgba(210, 45, 0, .2);
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      margin-top: 7px;
+      color: #fff;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 0.8cqw;
+    }
+
+    .learning {
+      padding-top: 8px;
+    }
+
+    .role-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .role-card {
+      height: 92px;
+      display: flex;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .role-photo {
+      width: 142px;
+      height: 92px;
+      flex: 0 0 142px;
+      background-color: #f3f3f3;
+    }
+
+    .role-1 { background-position: -22px -732px; }
+    .role-2 { background-position: -22px -846px; }
+    .role-3 { background-position: -22px -958px; }
+    .role-4 { background-position: -22px -1071px; }
+    .role-5 { background-position: -22px -1184px; }
+    .role-6 { background-position: -22px -1297px; }
+
+    .role-body {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 8px;
+      text-align: center;
+      background: linear-gradient(90deg, rgba(255, 255, 255, .84), #fff 35%);
+    }
+
+    .role-name {
+      color: #ff6946;
+      font-size: 23px;
+      font-weight: 900;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .role-desc {
+      margin-top: 5px;
+      color: #7d7776;
+      font-size: 12px;
+      line-height: 1.28;
+      font-weight: 600;
+    }
+
+    .learning .cta,
+    .stats .cta {
+      width: calc(100% - 12px);
+      margin: 24px auto 0;
+    }
+
+    .stats {
+      padding-top: 30px;
+    }
+
+    .stats-card {
+      position: relative;
+      min-height: 187px;
+      overflow: hidden;
+      padding: 21px 14px 11px;
+      background: #fff;
+    }
+
+    .stats-head {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #595959;
+      font-size: 19px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .stats-head b {
+      color: #ff7046;
+      font-size: 39px;
+      letter-spacing: 1px;
+      vertical-align: -4px;
+    }
+
+    .stats-sub {
+      position: relative;
+      z-index: 2;
+      margin-top: 3px;
+      text-align: center;
+      color: #ff7046;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .stats-people {
+      position: absolute;
+      left: -1px;
+      bottom: 0;
+      width: 184px;
+      height: 122px;
+      background-position: -5px -1510px;
+    }
+
+    .badges {
+      position: absolute;
+      right: 12px;
+      bottom: 18px;
+      z-index: 2;
+      width: 137px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .badge {
+      height: 20px;
+      display: flex;
+      align-items: center;
+      padding-left: 11px;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 800;
+      border-radius: 2px 9px 9px 2px;
+      background: linear-gradient(90deg, #ff824a, #ffb472);
+      white-space: nowrap;
+    }
+
+    .classes {
+      padding-top: 32px;
+      padding-bottom: 34px;
+    }
+
+    .classes .title {
+      font-size: 31px;
+      line-height: 1.08;
+    }
+
+    .class-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 16px;
+      margin-top: 29px;
+    }
+
+    .class-card {
+      min-width: 0;
+      color: #fff;
+    }
+
+    .class-img {
+      height: 103px;
+      background-color: #eee;
+      background-size: 375px auto;
+    }
+
+    .class-1 { background-position: -22px -1917px; }
+    .class-2 { background-position: -191px -1917px; }
+    .class-3 { background-position: -22px -2260px; }
+    .class-4 { background-position: -191px -2260px; }
+
+    .class-caption {
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 5px 5px;
+      text-align: center;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1.15;
+      background: linear-gradient(180deg, #ff972c, #ff6818);
+      letter-spacing: 0.5cqw;
+    }
+
+    .points {
+      min-height: 103px;
+      padding: 10px 0 0 2px;
+      font-size: 12px;
+      line-height: 1.36;
+      letter-spacing: 0.2px;
+    }
+
+    .small-cta {
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 900;
+      border: 2px solid #ffe2aa;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #ffb02a, #ff6e18 60%, #ff4310);
+      box-shadow: inset 0 2px 5px rgba(255, 255, 255, .5);
+      white-space: nowrap;
+      width: 43cqw;
+      letter-spacing: 0.2cqw;
+    }
+
+    .footer {
+      padding: 0 18px 38px;
+      color: #fff;
+      text-align: center;
+      background: var(--orange);
+      height: 15cqh;
+    }
+
+    .footer-title {
+      font-size: 29px;
+      font-weight: 900;
+      line-height: 1.07;
+      letter-spacing: 1cqw;
+      text-shadow: 0 2px 0 rgba(203, 40, 0, .16);
+    }
+
+    @media (max-width: 340px) {
+      .hero {
+        height: 250px;
+      }
+
+      .hero-card {
+        height: 216px;
+      }
+
+      .hero-teacher {
+        width: 135px;
+        height: 177px;
+      }
+
+      .role-name {
+        font-size: 20px;
+      }
+
+      .role-desc,
+      .points {
+        font-size: 11px;
+      }
+
+      .class-grid {
+        gap: 24px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero" aria-label="学大教育">
+      <img src="./images/1.png" style="object-fit: fill;width: stretch;">
+    </section>
+
+    <section class="entry">
+      <div class="entry-panel">
+        <img src="./images/2.png" style="object-fit: fill;width: stretch;">
+        <button class="cta">预约定制学习方案</button>
+      </div>
+    </section>
+
+    <section class="section learning">
+      <h2 class="title">个性化教育学习中心</h2>
+      <p class="subtitle">6名教师x1位学生，陪伴式贴心服务</p>
+
+      <div style="margin-top: 3cqw;">
+        <img src="./images/3.png" style="object-fit: fill;width: stretch;">
+      </div>
+
+      <button class="cta">预约定制学习方案</button>
+    </section>
+
+    <section class="section stats">
+      <div style="margin-top: 3cqw;">
+        <img src="./images/4.png" style="object-fit: fill;width: stretch;">
+      </div>
+      <button class="cta">了解学大资质</button>
+    </section>
+
+    <section class="section classes">
+      <h2 class="title">多样化班型<br>满足学生不同学习需求</h2>
+      <div class="class-grid">
+        <article class="class-card">
+          <div class="" style="height: 110px;">
+            <img src="./images/5.png" style="object-fit: fill;width: stretch;">
+          </div>
+          <h3 class="class-caption">1对1个性化<br>辅导课程</h3>
+          <p class="points">·科学评估学情<br>·定制学习方案<br>·直击知识漏洞<br>·快速突破学习难点</p>
+          <button class="small-cta">预约定制学习方案</button>
+        </article>
+        <article class="class-card">
+          <div class="" style="height: 110px;">
+            <img src="./images/6.png" style="object-fit: fill;width: stretch;">
+          </div>
+          <h3 class="class-caption">3-6人班组课</h3>
+          <p class="points">·1名教师只教3-6个学生<br>·引导式讲解培养发散思维<br>·使每名学生都能被照顾到<br>·家长的高性价比选择</p>
+          <button class="small-cta">了解小班课辅导</button>
+        </article>
+        <article class="class-card">
+          <div class="" style="height: 110px;">
+            <img src="./images/7.png" style="object-fit: fill;width: stretch;">
+          </div>
+          <h3 class="class-caption">中高考全日制集训</h3>
+          <p class="points">·精细化教学管理<br>·优化教学实施策略<br>·锁定问题系统原因<br>·专属定制学习方案</p>
+          <button class="small-cta">了解全日制辅导</button>
+        </article>
+        <article class="class-card">
+          <div class="" style="height: 110px;">
+            <img src="./images/8.png" style="object-fit: fill;width: stretch;height: auto;">
+          </div>
+          <h3 class="class-caption">中高考全托班</h3>
+          <p class="points">·激发学习动力<br>·专项知识技巧点睛<br>·思维能力培养<br>·查漏补缺提高改变</p>
+          <button class="small-cta">了解全托班</button>
+        </article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-title">全国400+学习中心<br>覆盖全国100+城市</div>
+    </footer>
+  </main>
+</body>
+</html>

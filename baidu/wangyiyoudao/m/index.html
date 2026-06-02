@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>有道领世教育</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: min(9.259259vw, 100px);
+      background: #eef0ff;
+    }
+
+    body {
+      min-width: 320px;
+      color: #4250b0;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      background: #eef0ff;
+    }
+
+    button {
+      border: 0;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .page {
+      position: relative;
+      width: 10.8rem;
+      max-width: 100vw;
+      min-height: 68.19rem;
+      margin: 0 auto;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 82% 8%, rgba(119, 128, 255, .32) 0 1.55rem, transparent 1.58rem),
+        radial-gradient(circle at 12% 35%, rgba(105, 119, 255, .18) 0 1.35rem, transparent 1.38rem),
+        radial-gradient(circle at 87% 62%, rgba(105, 119, 255, .22) 0 1.35rem, transparent 1.38rem),
+        linear-gradient(180deg, #e9eaff 0%, #cfd4ff 38%, #b6bdff 100%);
+    }
+
+    .page::before,
+    .page::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .25);
+      filter: blur(.06rem);
+      pointer-events: none;
+    }
+
+    .page::before {
+      width: 7.7rem;
+      height: 7.7rem;
+      left: -2.9rem;
+      top: 17.5rem;
+    }
+
+    .page::after {
+      width: 7.9rem;
+      height: 7.9rem;
+      left: 4.15rem;
+      top: 45rem;
+    }
+
+    .hero,
+    .panel {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      height: 9.18rem;
+      padding-top: .95rem;
+    }
+
+    .hero-person {
+      position: absolute;
+      left: -.14rem;
+      top: .98rem;
+      width: 4.42rem;
+      height: 7.82rem;
+      /* background: url("./images/hero.png") no-repeat -.02rem -1.02rem / 10.8rem 68.19rem; */
+    }
+
+    .hero-copy {
+      position: absolute;
+      right: .78rem;
+      top: 2.5rem;
+      width: 6rem;
+      text-align: center;
+    }
+
+    .brand-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 5.24rem;
+      height: .68rem;
+      margin-bottom: .3rem;
+      padding: 0 .32rem;
+      color: #fff;
+      font-size: .33rem;
+      font-weight: 800;
+      letter-spacing: .01rem;
+      border-radius: .1rem;
+      background: #4c58d7;
+      box-shadow: 0 .05rem .12rem rgba(62, 70, 190, .2);
+      letter-spacing: 1px;
+    }
+
+    .hero-title {
+      color: #3c4bcb;
+      font-size: .95rem;
+      line-height: .98rem;
+      font-weight: 950;
+      letter-spacing: 0;
+      text-shadow: .03rem .05rem 0 rgba(255, 255, 255, .75);
+      white-space: nowrap;
+    }
+
+    .hero-tags {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .08rem .24rem;
+      margin-top: .25rem;
+      color: #4658bd;
+      font-size: .25rem;
+      line-height: .34rem;
+      font-weight: 500;
+      text-align: left;
+      padding-left: .11rem;
+      letter-spacing: 0.12cqw;
+    }
+
+    .hero-tags span::before {
+      content: "\00b7";
+      margin-right: .04rem;
+    }
+
+    .panel {
+      width: 9.72rem;
+      margin: 0 auto .88rem;
+      background: #fff;
+      box-shadow: 0 .04rem .06rem rgba(78, 88, 190, .05);
+    }
+
+    .course-panel {
+      min-height: 11.48rem;
+      border-top: .80rem solid #8790ff;
+      padding: .68rem .54rem .58rem;
+      border-top-left-radius: 20px;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      gap: .34rem;
+      margin-bottom: .5rem;
+    }
+
+    .tab {
+      flex: 1;
+      height: 1rem;
+      border-radius: .5rem;
+      color: #fff;
+      font-size: .5rem;
+      font-weight: 900;
+      background: #4355c9;
+      box-shadow: inset 0 -.04rem 0 rgba(38, 48, 152, .16);
+    }
+
+    .subjects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: .18rem .35rem;
+      margin-bottom: .75rem;
+    }
+
+    .subject {
+      height: .65rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #9ba5ff;
+      font-size: .39rem;
+      font-weight: 900;
+      background: #eef0ff;
+      letter-spacing:0.3rem;
+    }
+
+    .course-list {
+      display: flex;
+      gap: .42rem;
+    }
+
+    .course-card {
+      flex: 1;
+      min-width: 0;
+      color: #4354c7;
+      text-align: center;
+    }
+
+    .course-cover {
+      position: relative;
+      height: 100px;
+      overflow: hidden;
+      background: #dfe3ff;
+    }
+
+    .photo {
+      width: stretch;
+      height: stretch;
+    }
+
+    .photo-course-left {
+      background-position: -1.1rem -14.18rem;
+    }
+
+    .photo-course-right {
+      background-position: -5.68rem -14.18rem;
+    }
+
+    .cover-label {
+      position: absolute;
+      left: 0;
+      bottom: 0px;
+      width: 100%;
+      height: .56rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: .36rem;
+      font-weight: 950;
+      background: rgba(114, 129, 255, .88);
+      letter-spacing: 0.2cqw;
+    }
+
+    .vip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.2rem;
+      height: .35rem;
+      margin-left: .1rem;
+      border-radius: .12rem;
+      color: #6c3d00;
+      font-size: .18rem;
+      font-weight: 900;
+      background: linear-gradient(180deg, #ffe873, #ffad19);
+    }
+
+    .course-text {
+      min-height: 1.15rem;
+      padding: .24rem .06rem 0;
+      font-size: .18rem;
+      line-height: .45rem;
+      letter-spacing: 0.2cqw;
+      text-align: left;
+    }
+
+    .course-text strong {
+      color: #4556c7;
+      font-weight: 950;
+    }
+
+    .blue-btn,
+    .orange-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.77rem;
+      height: .85rem;
+      border-radius: .65rem;
+      color: #fff;
+      font-size: .35rem;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 0.15cqw;
+    }
+
+    .blue-btn {
+      margin-top: .28rem;
+      background: linear-gradient(180deg, #8790ff 0%,#4657cc 100%);
+    }
+
+    .orange-btn {
+      width: 5.84rem;
+      height: 1rem;
+      border-radius: .16rem;
+      font-size: .45rem;
+      background: linear-gradient(180deg, #8790ff 0%,#4657cc 100%);
+      box-shadow: inset 0 .03rem .05rem rgba(255, 255, 255, .32);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 1.1rem;
+      margin: 0 auto .24rem;
+      color: #fff;
+      font-size: .62rem;
+      line-height: .82rem;
+      font-weight: 950;
+      background: #4455c9;
+      letter-spacing: 0.2cqw;
+    }
+
+    .section-title.round {
+      width: 8.15rem;
+      border-radius: .4rem;
+    }
+
+    .section-title.full {
+      width: 9.2rem;
+      border-radius: 0 .36rem .36rem 0;
+      position: absolute;
+      left: 0;
+      top: 5cqw;
+      letter-spacing: 0.3cqw;
+    }
+
+    .teacher-panel {
+      padding: .34rem .54rem .64rem;
+      border-radius: .34rem .34rem 0 0;
+    }
+
+    .teacher-sub {
+      margin-bottom: .42rem;
+      color: #7b7482;
+      margin-top: 16cqw;
+      font-size: .5rem;
+      line-height: .36rem;
+      font-weight: 750;
+      text-align: center;
+      letter-spacing: .11rem;
+    }
+
+    .team-photo {
+      width: 8.63rem;
+      height: 4.72rem;
+      margin: 0 auto .49rem;
+      overflow: hidden;
+      background: #d9e2ee;
+    }
+
+    .photo-team {
+      background-position: -1.08rem -24.2rem;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .study-panel {
+      padding: .44rem .52rem .8rem;
+      border-radius: .3rem .3rem 0 0;
+    }
+
+    .study-head {
+      margin-bottom: .4rem;
+      text-align: center;
+    }
+
+    .study-title {
+      position: absolute;
+      top: 5cqw;
+      right: 0;
+      letter-spacing: 0.3cqw;
+      width: 9.2rem;
+      height: 1.1rem;
+      margin: 0 auto .22rem;
+      color: #fff;
+      font-size: .62rem;
+      line-height: 1.1rem;
+      font-weight: 950;
+      border-radius: 0.36rem 0 0 0.36rem;
+      background: #4455c9;
+    }
+
+    .study-sub {
+      margin-top: 16cqw;
+      color: #6e7285;
+      font-size: .4rem;
+      line-height: .36rem;
+      font-weight: 750;
+      letter-spacing: .05rem;
+    }
+
+    .device {
+      width: 6.68rem;
+      height: 4.26rem;
+      margin: 0 auto .47rem;
+      background: transparent;
+    }
+
+    .photo-device {
+      background-position: -2.08rem -35.08rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .39rem .64rem;
+      width: 7.98rem;
+      margin: 1rem auto .59rem;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: .28rem 1fr;
+      gap: .16rem;
+      align-items: start;
+    }
+
+    .feature::before {
+      content: "";
+      width: .27rem;
+      height: .27rem;
+      margin-top: .12rem;
+      border: .09rem solid #ffb000;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .feature h3 {
+      color: #4455c9;
+      font-size: .5rem;
+      line-height: .65rem;
+      font-weight: 950;
+      letter-spacing: 0.06rem;
+    }
+
+    .feature p {
+      margin-top: .03rem;
+      color: #6e7285;
+      font-size: .35rem;
+      line-height: .43rem;
+      /* font-weight: 750; */
+    }
+
+    .ai-panel {
+      padding: .4rem .53rem .73rem;
+      border-radius: .3rem .3rem 0 0;
+    }
+
+    .ai-title-wrap {
+      position: absolute;
+      right: 0;
+      width: 7.5rem;
+      height: 1.2rem;
+      margin: 0 0 .52rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .26rem;
+      color: #fff;
+      border-radius: .43rem 0 0 .43rem;
+      background: #4455c9;
+    }
+
+    .ai-main {
+      font-size: .76rem;
+      line-height: .7rem;
+      font-weight: 950;
+    }
+
+    .ai-sub {
+      font-size: .36rem;
+      line-height: .42rem;
+      font-weight: 900;
+      text-align: left;
+      letter-spacing: 0.03rem;
+    }
+
+    .ai-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: .22rem .39rem;
+      margin-bottom: .57rem;
+    }
+
+    .metric-card {
+      position: relative;
+      min-height: 2.49rem;
+      padding: .42rem .24rem .2rem;
+      border: .03rem solid #ff6841;
+      border-radius: .07rem;
+      background: linear-gradient(180deg, #fff 0%, #fff7f3 100%);
+      color: #52525e;
+    }
+
+    .metric-tab {
+      position: absolute;
+      left: -.03rem;
+      top: -.03rem;
+      min-width: 1.68rem;
+      height: .44rem;
+      padding: 0 .16rem;
+      color: #fff;
+      font-size: .22rem;
+      line-height: .44rem;
+      font-weight: 900;
+      border-radius: .05rem .05rem .05rem 0;
+      background: #8492ff;
+    }
+
+    .ring {
+      position: absolute;
+      left: .3rem;
+      top: .84rem;
+      width: 1.2rem;
+      height: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: .22rem;
+      line-height: .22rem;
+      font-weight: 950;
+      text-align: center;
+      border-radius: 50%;
+      background: conic-gradient(#ff6a3a 0 270deg, #ffd5c6 270deg 360deg);
+    }
+
+    .ring::after {
+      content: "";
+      position: absolute;
+      inset: .18rem;
+      border-radius: 50%;
+      background: #fff;
+    }
+
+    .ring span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-mini-title {
+      margin-left: 1.36rem;
+      color: #4b4d61;
+      font-size: .17rem;
+      line-height: .25rem;
+      font-weight: 850;
+    }
+
+    .legend {
+      margin: .28rem 0 0 1.62rem;
+      display: grid;
+      gap: .14rem;
+      color: #636370;
+      font-size: .2rem;
+      line-height: .2rem;
+      font-weight: 800;
+    }
+
+    .legend i {
+      display: inline-block;
+      width: .12rem;
+      height: .12rem;
+      margin-right: .07rem;
+      border-radius: 50%;
+      background: #fb5536;
+      vertical-align: middle;
+    }
+
+    .stars {
+      margin-top: .5rem;
+      color: #ff5531;
+      font-size: .3rem;
+      line-height: .36rem;
+      letter-spacing: 0;
+    }
+
+    .sound {
+      width: 2.08rem;
+      height: .68rem;
+      margin: .55rem auto 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff6541;
+      font-size: .24rem;
+      font-weight: 900;
+      border-radius: .08rem;
+      background: #ffe5df;
+    }
+
+    .bars {
+      position: absolute;
+      left: .55rem;
+      right: .42rem;
+      bottom: .45rem;
+      height: 1.26rem;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      border-left: .02rem solid #e3e3e3;
+      border-bottom: .02rem solid #e3e3e3;
+      padding: 0 .13rem;
+    }
+
+    .bars i {
+      width: .18rem;
+      background: linear-gradient(180deg, #ff4b27, #ff836b);
+    }
+
+    .bars i:nth-child(1) { height: .82rem; }
+    .bars i:nth-child(2) { height: .5rem; opacity: .25; }
+    .bars i:nth-child(3) { height: .66rem; }
+    .bars i:nth-child(4) { height: .9rem; }
+    .bars i:nth-child(5) { height: .62rem; }
+
+    .progress {
+      position: absolute;
+      left: .33rem;
+      right: .32rem;
+      bottom: .33rem;
+      height: .2rem;
+      border-radius: .1rem;
+      background: linear-gradient(90deg, #ff6940 0 46%, #ff2d19 46% 64%, #ff6940 64%);
+    }
+
+    .phone-row {
+      position: relative;
+      margin-top: 10cqw;
+    }
+
+    .phone {
+      position: absolute;
+      bottom: 0;
+      width: 2.64rem;
+      height: 3.03rem;
+      border-radius: .22rem;
+      border: .04rem solid #f4f4f8;
+      background: #fff;
+      box-shadow: 0 .08rem .22rem rgba(92, 96, 150, .16);
+      overflow: hidden;
+    }
+
+    .phone.left { left: 1.44rem; transform: rotate(-6deg); opacity: .9; }
+    .phone.mid { left: 3.45rem; z-index: 2; width: 3.25rem; height: 3.16rem; }
+    .phone.right { right: 1.17rem; transform: rotate(6deg); opacity: .9; }
+
+    .chat-top {
+      height: .48rem;
+      background: #f8f8fb;
+      border-bottom: .02rem solid #ececf2;
+    }
+
+    .bubble {
+      width: 1.78rem;
+      min-height: .36rem;
+      margin: .19rem .18rem;
+      border-radius: .08rem;
+      background: #f1f1f1;
+    }
+
+    .bubble.green {
+      margin-left: auto;
+      background: #54cf42;
+    }
+
+    .service-list {
+      width: 8.16rem;
+      margin: 0 auto .59rem;
+    }
+
+    .service-row {
+      display: grid;
+      grid-template-columns: 3.36rem 1fr;
+      height: .73rem;
+      margin-bottom: .04rem;
+      color: #5660be;
+      font-size: .26rem;
+      line-height: .73rem;
+      font-weight: 900;
+    }
+
+    .service-row strong {
+      display: block;
+      padding-left: .68rem;
+      color: #fff;
+      font-size: .31rem;
+      background: #8a97ff;
+      letter-spacing: 0.15cqw;
+    }
+
+    .service-row span {
+      display: block;
+      padding-left: .15rem;
+      background: #eef0ff;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 420px) {
+      .course-text {
+        font-size: .3rem;
+      }
+
+      .service-row {
+        font-size: .28rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-person" aria-label="学生图片占位">
+        <img src="./images/hero.png" style="object-fit: fill;width: auto;">
+      </div>
+      <div class="hero-copy">
+        <div class="brand-pill">网易有道旗下<span style="color: #f1cb78;">初高中网课</span>品牌</div>
+        <h1 class="hero-title">有道领世教育</h1>
+        <div class="hero-tags">
+          <span>覆盖初高中全科</span>
+          <span>双师督学&nbsp;随时答疑</span>
+          <span>清北牛师直播授课</span>
+          <span>家长实时查看学习效果</span>
+        </div>
+      </div>
+    </section>
+    <div>
+      <section class="panel course-panel">
+        <div class="tabs">
+          <button class="tab">高 中</button>
+          <button class="tab">初 中</button>
+          <button class="tab">一对一</button>
+        </div>
+        <div class="subjects">
+          <div class="subject">数学</div>
+          <div class="subject">语文</div>
+          <div class="subject">外语</div>
+          <div class="subject">政治</div>
+          <div class="subject">历史</div>
+          <div class="subject">地理</div>
+          <div class="subject">物理</div>
+          <div class="subject">化学</div>
+          <div class="subject">生物</div>
+        </div>
+        <div class="course-list">
+          <article class="course-card">
+            <div class="course-cover">
+              <img src="./images/2.png" style="object-fit: fill;width:stretch;">
+              <div class="cover-label">初中1对1在线辅导</div>
+            </div>
+            <p class="course-text"><strong style="font-weight: bold;">课程特点：</strong><br/>根据各地必考点、易错点同步学科辅导，提升各科成绩</p>
+            <button class="blue-btn" style="margin-top: 1rem;">咨询课程学费</button>
+          </article>
+          <article class="course-card">
+            <div class="course-cover">
+              <img src="./images/3.png" style="object-fit: fill;width:stretch;">
+              <div class="cover-label">高中在线辅导<span class="vip">1V1+班课</span></div>
+            </div>
+            <p class="course-text"><strong>课程特点：</strong><br/>课前1V1学情诊断，了解孩子学习状态，课中清北牛师授课课后学习&答疑</p>
+            <button class="blue-btn">咨询课程学费</button>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <section class="panel teacher-panel">
+      <h2 class="section-title full">有道领世网课 清北牛师天团</h2>
+      <p class="teacher-sub">让家长省心让孩子高效逆袭</p>
+      <div class="team-photo">
+        <img src="./images/4.png" style="object-fit: fill;width:stretch;height: 4.72rem;">
+      </div>
+      <div class="center">
+        <button class="orange-btn">咨询课程学费</button>
+      </div>
+    </section>
+
+    <section class="panel study-panel">
+      <div class="study-head">
+        <h2 class="study-title">在家就能学 上课超省心</h2>
+        <p class="study-sub">支持手机、iPad、电脑，随时随地听课</p>
+      </div>
+      <div class="device">
+        <img src="./images/5.png" style="object-fit: fill;width:stretch;height: 4.72rem;">
+      </div>
+      <div class="features">
+        <div class="feature">
+          <div style="margin-left: 0.15rem;">
+            <h3>直播课堂</h3>
+            <p>随时提问 视频连麦</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div style="margin-left: 0.15rem;">
+            <h3>离线缓存</h3>
+            <p>不费流量 随时随地学习</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div style="margin-left: 0.15rem;">
+            <h3>倍速播放</h3>
+            <p>自由切换学习速度</p>
+          </div>
+        </div>
+        <div class="feature">
+          <div style="margin-left: 0.15rem;">
+            <h3>随时回放</h3>
+            <p>重点难点 巩固学习</p>
+          </div>
+        </div>
+      </div>
+      <div class="center">
+        <button class="orange-btn">咨询课程学费</button>
+      </div>
+    </section>
+
+    <section class="panel ai-panel">
+      <div class="ai-title-wrap">
+        <div class="ai-main">AI智慧伴学</div>
+        <div class="ai-sub">1对1定制学<br>孩子成长看得见</div>
+      </div>
+      <div style="margin-top: 18cqw;">
+        <img src="./images/6.png" style="object-fit: fill;width: stretch;">
+      </div>
+      <div class="center">
+        <button class="orange-btn">咨询课程学费</button>
+      </div>
+      <div class="phone-row">
+        <img src="./images/7.png" style="object-fit: fill;width: stretch;">
+      </div>
+      <div class="service-list">
+        <div class="service-row"><strong>课前强引导</strong><span>上课提醒、引导预习、温故知新</span></div>
+        <div class="service-row"><strong>课中强互动</strong><span>激发学生思考，提炼梳理重难点</span></div>
+        <div class="service-row"><strong>课后强反馈</strong><span>个性化课堂报告，学情总结分析</span></div>
+        <div class="service-row"><strong>课外强沟通</strong><span>贴心答疑解惑，精选资料全放送</span></div>
+      </div>
+      <div class="center">
+        <button class="orange-btn">咨询课程学费</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

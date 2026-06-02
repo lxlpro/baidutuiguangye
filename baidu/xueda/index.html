@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学大教育 - 个性化教育25年</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", 
+                         "PingFang SC", "Hiragino Sans GB", 
+                         "Microsoft YaHei", sans-serif;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        /* 顶部横幅区域 */
+        .hero-banner {
+            background: linear-gradient(135deg, #FFD4A3 0%, #FFA366 100%);
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ff7a46;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #FF5722;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: linear-gradient(135deg, #FF8A65 0%, #FF5722 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .hero-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 40px;
+            box-shadow: 0 10px 30px rgba(255, 87, 34, 0.3);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 导航栏 */
+        .nav-bar {
+            background: #FF5722;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-bar li {
+            color: white;
+            font-size: 35px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .nav-bar li:hover {
+            opacity: 0.8;
+        }
+
+        /* 主要内容区域 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* 班型区域 */
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 60px;
+            letter-spacing: 10px;
+            color: #333;
+            margin-bottom: 0px;
+        }
+
+        .section-title .highlight {
+            color: #FF5722;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            font-size: 60px;
+            letter-spacing: 10px;
+            color: #000;
+            margin-top: 0px;
+            line-height: 1;
+        }
+
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+            margin-top: 40px;
+        }
+
+        .class-card {
+            border: 3px solid #FFE0B2;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 87, 34, 0.2);
+        }
+
+        .class-image {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+        }
+
+        .class-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .class-info {
+            background: white;
+            padding: 0;
+        }
+
+        .class-title {
+            background: linear-gradient(135deg, #FF8A65 0%, #FF5722 100%);
+            color: white;
+            padding: 20px;
+            font-size: 22px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .class-features {
+            padding: 25px;
+            background: white;
+        }
+
+        .class-features ul {
+            list-style: none;
+        }
+
+        .class-features li {
+            color: #FF6B35;
+            font-size: 26px;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .class-features li:before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .class-button {
+            background: #FF5722;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 20px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s;
+        }
+
+        .class-button:hover {
+            background: #E64A19;
+        }
+
+        /* 教师团队区域 */
+        .teacher-section {
+            background: linear-gradient(180deg, #FFF8F0 0%, #FFFFFF 100%);
+            padding: 60px 20px;
+        }
+
+        .teacher-stats {
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: 5px;
+        }
+
+        .teacher-stats h2 {
+            font-size: 50px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .teacher-stats .number {
+            color: #FF5722;
+            font-size: 60px;
+            font-weight: 700;
+        }
+
+        .teacher-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 50px;
+        }
+
+        .teacher-image {
+            flex: 0 0 400px;
+        }
+
+        .teacher-image img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .teacher-features {
+            flex: 1;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 20px 30px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #FF5722;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .feature-number {
+            background: linear-gradient(135deg, #FF8A65 0%, #FF5722 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            font-size: 25px;
+            color: #333;
+        }
+
+        .cta-button {
+            background: #FF5722;
+            color: white;
+            border: none;
+            letter-spacing: 5px;
+            padding: 15px 80px;
+            border-radius: 30px;
+            font-size: 20px;
+            cursor: pointer;
+            display: block;
+            margin: 40px auto 0;
+            transition: background 0.3s;
+            box-shadow: 0 5px 20px rgba(255, 87, 34, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #E64A19;
+        }
+
+        /* 学习中心区域 */
+        .learning-center {
+            padding: 60px 20px;
+            background: white;
+            padding-top: 0;
+        }
+
+        .center-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .center-title h2 {
+            font-size: 50px;
+            letter-spacing: 5px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .center-title .highlight {
+            color: #FF5722;
+        }
+
+        .center-title p {
+            font-size: 30px;
+            color: #666;
+        }
+
+        .center-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            margin-top: 30px;
+        }
+
+        .center-card {
+            text-align: center;
+            border-radius: 15px;
+            transition: transform 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .center-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .center-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .center-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .center-card h3 {
+            font-size: 20px;
+            color: #FF5722;
+            margin-bottom: 10px;
+        }
+
+        .center-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-image {
+                margin-left: 0;
+                margin-top: 30px;
+                width: 200px;
+                height: 200px;
+            }
+
+            .nav-bar ul {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .class-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .teacher-content {
+                flex-direction: column;
+            }
+
+            .teacher-image {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+
+            .center-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部横幅 -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <img src="./images/1.png" style="width: stretch; object-fit: fill;">
+        </div>
+    </section>
+
+    <!-- 导航栏 -->
+    <nav class="nav-bar">
+        <ul>
+            <li>个性化学习</li><div style="border-left:2px solid white"></div>
+            <li>师资力量</li><div style="border-left:2px solid white"></div>
+            <li>热门班型</li><div style="border-left:2px solid white"></div>
+            <li>校区查询</li>
+        </ul>
+    </nav>
+
+    <!-- 班型介绍 -->
+    <section class="container">
+        <div class="section-title">
+            <h2><span class="highlight">多样化</span>班型</h2>
+            <p style="font-weight: bold;">满足学生不同学习需求</p>
+        </div>
+        <div style="display: flex;justify-content: center;">
+            <div style="width:100px;border-top:8px solid #ff460a;border-radius:10px;"></div>
+        </div>
+        <div class="class-grid">
+            <!-- 1V1个性化辅导 -->
+            <div class="class-card">
+                <div class="class-image">
+                    <img src="./images/2.png" style="object-fit: fill; width: stretch;" alt="1V1个性化辅导">
+                </div>
+                <div class="class-info">
+                    <div class="class-features">
+                        <ul>
+                            <li>科学评估学情</li>
+                            <li>定制学习方案</li>
+                            <li>直击知识漏洞</li>
+                            <li>快速突破学习难点</li>
+                        </ul>
+                        <button class="class-button">了解定制学习方案</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3-6人班组课 -->
+            <div class="class-card">
+                <div class="class-image">
+                    <img src="./images/3.png" style="object-fit: fill; width: stretch;" alt="1V1个性化辅导">
+                </div>
+                <div class="class-info">
+                    <div class="class-features">
+                        <ul>
+                            <li>1名教师只教3-6个学生</li>
+                            <li>引导式讲解培养发散思维</li>
+                            <li>使每名学生都能被照顾到</li>
+                            <li>家长的高性价比选择</li>
+                        </ul>
+                        <button class="class-button">了解小班课学习方案</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中高考全日制集训 -->
+            <div class="class-card">
+                <div class="class-image">
+                    <img src="./images/4.png" style="width: stretch;object-fit: fill;" alt="中高考全日制集训">
+                </div>
+                <div class="class-info">
+                    <div class="class-features">
+                        <ul>
+                            <li>精细化教学管理</li>
+                            <li>优化教学实施策略</li>
+                            <li>靶定问题深究原因</li>
+                            <li>专属定制学习方案</li>
+                        </ul>
+                        <button class="class-button">了解全日制学习方案</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 中高考全托班 -->
+            <div class="class-card">
+                <div class="class-image">
+                    <img src="./images/5.png" style="width: stretch;object-fit: fill;" alt="中高考全日制集训">
+                </div>
+                <div class="class-info">
+                    <div class="class-features">
+                        <ul>
+                            <li>激发学习动力</li>
+                            <li>专项知识巩固点拨</li>
+                            <li>思辨能力培养</li>
+                            <li>查漏补缺提高效率</li>
+                        </ul>
+                        <button class="class-button">了解全托班学习方案</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教师团队 -->
+    <section class="teacher-section">
+        <div class="container">
+            <div class="teacher-stats">
+                <h2>专职教师<span class="number">5000+</span></h2>
+                <h2><span class="number">200W+</span>学生突破自身薄弱科目</h2>
+            </div>
+
+            <div class="teacher-content">
+                <div class="teacher-image">
+                    <img src="./images/6.png" style="width: 650px;object-fit: fill;" alt="专业教师团队">
+                </div>
+                <div class="teacher-features">
+                    <div class="feature-item">
+                        <div class="feature-number">01</div>
+                        <div class="feature-text">1人1课表，分层教学</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-number">02</div>
+                        <div class="feature-text">高校毕业教师，重点院校背景</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-number">03</div>
+                        <div class="feature-text">多年带班经验，讲课通俗易懂</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-number">04</div>
+                        <div class="feature-text">定期考核淘汰，保证教学质量</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="cta-button">了解师资</button>
+        </div>
+    </section>
+
+    <!-- 学习中心 -->
+    <section class="learning-center">
+        <div class="container" style="padding-top: 0;">
+            <div class="center-title" style="margin-bottom: 20px;">
+                <h2><span class="highlight">个性化教育</span>学习中心</h2>
+                <p>6名教师×1位学生，陪伴式贴心服务</p>
+            </div>
+
+            <div style="display: flex;justify-content: center;">
+                <div style="width:100px;border-top:8px solid #ff460a;border-radius:10px;"></div>
+            </div>
+
+            <div class="center-grid">
+                <div class="center-card">
+                    <img src="./images/7.png" style="width:410px;object-fit: fill;">
+                </div>
+
+                <div class="center-card">
+                    <img src="./images/8.png" style="width:410px;object-fit: fill;">
+                </div>
+
+                <div class="center-card">
+                    <img src="./images/9.png" style="width:410px;object-fit: fill;">
+                </div>
+
+                <div class="center-card">
+                    <img src="./images/10.png" style="width:410px;object-fit: fill;">
+                </div>
+
+                <div class="center-card">
+                    <img src="./images/11.png" style="width:410px;object-fit: fill;">
+                </div>
+
+                <div class="center-card">
+                    <img src="./images/12.png" style="width:410px;object-fit: fill;">
+                </div>
+            </div>
+
+            <button class="cta-button">预约定制学习方案</button>
+        </div>
+    </section>
+
+    <script>
+        // 平滑滚动效果
+        document.querySelectorAll('.nav-bar li').forEach(item => {
+            item.addEventListener('click', function() {
+                // 这里可以添加页面滚动或跳转逻辑
+                console.log('导航点击:', this.textContent);
+            });
+        });
+
+        // 按钮点击事件
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('感谢您的关注！我们的顾问将尽快与您联系。');
+            });
+        });
+
+        // 添加滚动动画效果
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有卡片元素
+        document.querySelectorAll('.class-card, .center-card, .feature-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
