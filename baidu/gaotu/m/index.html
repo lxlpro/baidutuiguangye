@@ -2,6 +2,19 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
+  <!-- ================================================================= -->
+        <!-- ★★★ 百度统计 / 爱番番沟通工具代码（必须放在 <head> 之后）★★★ -->
+        <!-- ================================================================= -->
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?48925e86a0ee5f53acb94049f2d362b3";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+<!-- ================================================================= -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>高途教育 - 高中全科在线网课</title>
   <style>
@@ -25,6 +38,8 @@
     html {
       background: #efefef;
       font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body {
@@ -32,11 +47,45 @@
       font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
       color: var(--text);
       background: #efefef;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     button,
     input {
       font: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border: 0;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    .fluid-img {
+      width: 100%;
+      height: auto;
+    }
+
+    .fill-img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+
+    .hero-img {
+      position: absolute;
+      top: 34%;
+      left: 0;
+      z-index: 9999;
+      width: 100%;
+      height: auto;
+      max-width: none;
+      object-fit: fill;
     }
 
     .page {
@@ -58,6 +107,7 @@
       width: 35px;
       height: 35px;
       background: var(--yellow);
+      -webkit-clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%);
       clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%);
       filter: drop-shadow(0 2px 0 rgba(255, 92, 15, .28));
     }
@@ -82,6 +132,7 @@
       width: 26px;
       height: 26px;
       background: var(--yellow);
+      -webkit-clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%);
       clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%);
     }
 
@@ -112,6 +163,7 @@
       width: 28px;
       height: 21px;
       /* background: #fff4c1; */
+      -webkit-clip-path: polygon(50% 100%, 0 0, 100% 0);
       clip-path: polygon(50% 100%, 0 0, 100% 0);
     }
 
@@ -135,6 +187,7 @@
       width: 16px;
       height: 18px;
       background: #ffd18b;
+      -webkit-clip-path: polygon(0 0, 100% 50%, 0 100%);
       clip-path: polygon(0 0, 100% 50%, 0 100%);
     }
 
@@ -223,6 +276,7 @@
       width: 95px;
       height: 75px;
       background: #fff;
+      -webkit-clip-path: polygon(0 0, 100% 0, 16% 100%);
       clip-path: polygon(0 0, 100% 0, 16% 100%);
     }
 
@@ -431,6 +485,10 @@
       box-shadow: 0 0 0 1px rgba(255, 101, 27, .25);
     }
 
+    .photo-box:not([data-label])::after {
+      display: none;
+    }
+
     .course-photo {
       aspect-ratio: 166 / 118;
     }
@@ -628,6 +686,7 @@
       height: 18px;
       transform: translateX(-50%);
       background: #ff6420;
+      -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
       clip-path: polygon(0 0, 100% 0, 50% 100%);
     }
 
@@ -695,6 +754,7 @@
       height: 17px;
       transform: translateX(-50%);
       background: #ff6420;
+      -webkit-clip-path: polygon(0 0, 100% 0, 50% 100%);
       clip-path: polygon(0 0, 100% 0, 50% 100%);
     }
 
@@ -801,6 +861,20 @@
         padding-left: 16px;
       }
     }
+
+    @supports not (aspect-ratio: 1 / 1) {
+      .course-photo,
+      .device-photo,
+      .phone-photo {
+        height: auto;
+      }
+
+      .course-photo .fill-img,
+      .device-photo .fill-img,
+      .phone-photo .fill-img {
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
@@ -815,12 +889,12 @@
     <i class="pencil p2"></i>
     <i class="pencil p3"></i>
     <i class="scribble" style="top: 780px; left: 37px;">
-      <img src="./images/书本.png" style="object-fit: fill;width:stretch;">
+      <img class="fluid-img" src="./images/书本.png">
     </i>
     <i class="rocket"></i>
     
     <section class="hero">
-      <img src="./images/hero.png" style="object-fit: fill;width: stretch;position: absolute; z-index: 9999;top:34%">
+      <img class="hero-img" src="./images/hero.png">
       <div class="hero-badge">高中全科 在线网课</div>
       <div class="hero-bubble"></div>
       <div class="hero-content">
@@ -857,25 +931,25 @@
       <div class="course-grid">
         <article class="course-card">
           <div class="photo-box course-photo">
-            <img src="./images/8.png" style="object-fit: fill;width: stretch;">
+            <img class="fill-img" src="./images/8.png">
           </div>
           <div class="course-caption">高中在线1V1</div>
           <p class="course-copy">
             <b>课程特点：</b>
             随时约课，专属老师只盯你一个人的进度和弱项
           </p>
-          <button class="small-btn">咨询课程学费</button>
+          <button class="small-btn" href="javascript:openChat();">咨询课程学费</button>
         </article>
         <article class="course-card">
           <div class="photo-box course-photo">
-            <img src="./images/9.png" style="object-fit: fill;width: stretch;">
+            <img class="fill-img" src="./images/9.png">
           </div>
           <div class="course-caption">高中在线班课</div>
           <p class="course-copy">
             <b>课程特点：</b>
             名师资源跨地域共享，与同窗实时互动、PK学习，氛围更足
           </p>
-          <button class="small-btn">咨询课程学费</button>
+          <button class="small-btn" href="javascript:openChat();">咨询课程学费</button>
         </article>
       </div>
     </section>
@@ -884,7 +958,7 @@
       <h2 class="section-title"><span class="orange">在家就能学</span>上课超省心</h2>
       <p style="margin-top: 6px; color: #777; font-size: 14px; text-align: center;">支持手机、IPAD、电脑，随时随地听课</p>
       <div class="photo-box device-photo">
-        <img src="./images/7.png" style="object-fit: fill;width: stretch;">
+        <img class="fill-img" src="./images/7.png">
       </div>
       <div class="feature-grid">
         <div class="feature"><div><strong>直播课堂</strong><span>随时提问视频连麦</span></div></div>
@@ -899,7 +973,7 @@
       <h2 class="section-title">打破地域限制</h2>
       <p class="section-subtitle">“一线城市名师”请回家</p>
       <div class="teacher-photo">
-        <img src="./images/6.png" style="object-fit: fill;width: stretch;">
+        <img class="fluid-img" src="./images/6.png">
       </div>
       <ul class="teacher-list">
         <li>来自北上教研组的教研精华</li>
@@ -907,7 +981,7 @@
         <li>一线城市的解题视角</li>
         <li>打破地域限制</li>
       </ul>
-      <a class="cta" href="javascript:;">立即咨询</a>
+      <a class="cta" href="javascript:openChat();">立即咨询</a>
     </section>
 
     <section class="notebook">
@@ -921,7 +995,7 @@
           <div class="dash-head">学习时长</div>
           <article class="dash-card">
             <div class="dash-body">
-              <img src="./images/2.png" style="object-fit: fill;width:stretch">
+              <img class="fluid-img" src="./images/2.png">
             </div>
           </article>
         </div>
@@ -929,7 +1003,7 @@
           <div class="dash-head">课前预习</div>
           <article class="dash-card">
             <div class="dash-body">
-              <img src="./images/3.png" style="object-fit: fill;width:stretch">
+              <img class="fluid-img" src="./images/3.png">
             </div>
           </article>
         </div>
@@ -937,7 +1011,7 @@
           <div class="dash-head">答题正确率</div>
           <article class="dash-card">
             <div class="dash-body">
-              <img src="./images/4.png" style="object-fit: fill;width:stretch">
+              <img class="fluid-img" src="./images/4.png">
             </div>
           </article>
         </div>
@@ -945,16 +1019,16 @@
           <div class="dash-head">课堂比重</div>
           <article class="dash-card">
             <div class="dash-body">
-              <img src="./images/5.png" style="object-fit: fill;width:stretch">
+              <img class="fluid-img" src="./images/5.png">
             </div>
           </article>
         </div>
       </div>
-      <a class="cta" href="javascript:;">立即咨询</a>
+      <a class="cta" href="javascript:openChat();">立即咨询</a>
 
       <div class="ai-bottom">
         <div class="orange-strip">班主任课前课后课中保姆式伴学</div>
-        <img src="./images/1.png" style="object-fit:fill;width: stretch;">
+        <img class="fluid-img" src="./images/1.png">
         
         <div class="service-list">
           <div class="service-row" style="margin-top:0px"><b>课前强引导</b><span>上课提醒、引导预习、温故知新</span></div>
@@ -962,9 +1036,27 @@
           <div class="service-row"><b>课后强反馈</b><span>个性化课堂报告，学情总结分析</span></div>
           <div class="service-row"><b>课外强沟通</b><span>贴心答疑解惑，精准资料全放送</span></div>
         </div>
-        <a class="cta" href="javascript:;">立即咨询</a>
+        <a class="cta" href="javascript:openChat();">立即咨询</a>
       </div>
     </section>
   </main>
+      <script>
+        // 唤起爱番番在线沟通弹窗：hm.js 加载完成后通常自带全局方法
+        function openChat(){
+            if (typeof window.nb === 'function')        { window.nb(); return; }            // 爱番番
+            if (window._hmt && typeof _hmt.push === 'function') { _hmt.push(['_trackEvent','openChat','click']); }
+            // 兜底：打开公司客服咨询地址
+            window.open('#','_blank');
+        }
+
+        // 平滑滚动
+        document.querySelectorAll('.nav-bar a[href^="#"]').forEach(a=>{
+            a.addEventListener('click',e=>{
+            e.preventDefault();
+            const t=document.querySelector(a.getAttribute('href'));
+            if(t) t.scrollIntoView({behavior:'smooth'});
+            });
+        });
+    </script>
 </body>
 </html>

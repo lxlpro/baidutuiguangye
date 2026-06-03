@@ -36,6 +36,34 @@
     button {
       border: 0;
       font: inherit;
+      -webkit-appearance: none;
+      appearance: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      border: 0;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    a,
+    button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .full-img {
+      width: 100%;
+      height: auto;
+      object-fit: fill;
+    }
+
+    .fit-img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
     }
 
     .page {
@@ -123,7 +151,10 @@
     .person {
       position: absolute;
       z-index: 9999;
+      left: 0;
+      right: 0;
       bottom: 0px;
+      width: 100%;
       /* right: 39px;
       bottom: 44px;
       z-index: 3;
@@ -554,8 +585,9 @@
       }
 
       .person {
-        right: -6px;
-        width: stretch;
+        left: 0;
+        right: 0;
+        width: 100%;
       }
 
       .book {
@@ -638,7 +670,7 @@
   <main class="page">
     <div style="position: relative;">
       <div class="person">
-        <img src="./images/hero.png" style="object-fit: fill;width:stretch;">
+        <img class="full-img" src="./images/hero.png" alt="">
       </div>
       
       <section class="hero">
@@ -672,14 +704,14 @@
       <div class="class-panel">
         <article class="class-card">
           <div style="height: 108px;">
-            <img src="./images/1.png" style="object-fit: fill;width: stretch;">
+            <img class="fit-img" src="./images/1.png" alt="">
           </div>
           <h3 class="class-name">初高中1对1课程</h3>
           <p>定制学习方案 直击薄弱环节及时追踪答疑 适合不同学员</p>
         </article>
         <article class="class-card">
           <div class="" style="height: 108px;">
-            <img src="./images/2.png" style="object-fit: fill;width: stretch;">
+            <img class="fit-img" src="./images/2.png" alt="">
           </div>
           <h3 class="class-name">初高中全日制集训</h3>
           <p>封闭式集训 军事化管理 自编教材资料 适合基础差学员</p>
@@ -691,7 +723,7 @@
       <h2 class="blue-title">严选师资针对性教研</h2>
       <div class="filter-tabs"><strong>严格筛选</strong><span>讲知识更讲技巧高效学习</span></div>
       <div class="ph team-photo">
-        <img src="./images/3.png" style="object-fit: fill;width: stretch;">
+        <img class="fit-img" src="./images/3.png" alt="">
       </div>
       <div class="teacher-bars">
         <div class="teacher-bar">5%简历录取率→试讲磨课→持续培训</div>
@@ -706,28 +738,28 @@
       <div class="service-cards">
         <article class="service-card">
           <div class="icon-ph">
-            <img src="./images/5.png" style="object-fit: fill;width: stretch;">
+            <img class="fit-img" src="./images/5.png" alt="">
           </div>
           <h3>贴心的<br>教学服务</h3>
           <p>讲、练、考、改有机结合，让学生当堂吸收领会，课下复习巩固形成教学的闭环。</p>
         </article>
         <article class="service-card">
           <div class="icon-ph">
-            <img src="./images/6.png" style="object-fit: fill;width: stretch;">
+            <img class="fit-img" src="./images/6.png" alt="">
           </div>
           <h3>问题不拖延<br>及时解答</h3>
           <p>每天固定答疑时间，让学生能够及时问老师，做到问题不过夜。</p>
         </article>
         <article class="service-card">
           <div class="icon-ph">
-            <img src="./images/7.png" style="object-fit: fill;width: stretch;">
+            <img class="fit-img" src="./images/7.png" alt="">
           </div>
           <h3>大数据分析指导<br>学习方向</h3>
           <p>每个学员都会收到一份含有全班错误率较高的错题集锦及一份针对自己各次作业和小测试的分析表。</p>
         </article>
       </div>
       <div class="flow">
-        <img src="./images/8.png" style="object-fit: fill;width: stretch;">
+        <img class="full-img" src="./images/8.png" alt="">
         <a class="cta" href="javascript:;">立即咨询</a>
       </div>
     </section>

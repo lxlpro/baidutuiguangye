@@ -2,6 +2,19 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+        <!-- ================================================================= -->
+        <!-- ★★★ 百度统计 / 爱番番沟通工具代码（必须放在 <head> 之后）★★★ -->
+        <!-- ================================================================= -->
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?48925e86a0ee5f53acb94049f2d362b3";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+<!-- ================================================================= -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>高途教育 - 高中全科在线网课</title>
     <style>
@@ -555,7 +568,7 @@
                         <div class="course-description">
                             随时约课，专属老师1对1，根据孩子的学科问题，提升学习效率
                         </div>
-                        <button class="course-cta">咨询定制学习方案</button>
+                        <button class="course-cta" href="javascript:openChat();">咨询定制学习方案</button>
                     </div>
                 </div>
                 
@@ -585,7 +598,7 @@
                 <div class="features-list">
                     <img src="./images/4.png" alt="在线学习场景">
                     <div style="text-align: center;">
-                        <button class="features-cta">咨询定制学习方案</button>
+                        <button class="features-cta" href="javascript:openChat();">咨询定制学习方案</button>
                     </div>
                 </div>
             </div>
@@ -609,7 +622,7 @@
                     <span class="teacher-feature">一线城市的解题思维</span>
                     <span class="teacher-feature">打破地域限制</span>
                     
-                    <button class="teacher-cta">咨询定制学习方案</button>
+                    <button class="teacher-cta" href="javascript:openChat();">咨询定制学习方案</button>
                 </div>
             </div>
         </div>
@@ -626,9 +639,27 @@
             </div>
             
             <div class="cta-center">
-                <button class="ai-cta">立即咨询</button>
+                <button class="ai-cta" href="javascript:openChat();">立即咨询</button>
             </div>
         </div>
     </section>
+    <script>
+    // 唤起爱番番在线沟通弹窗：hm.js 加载完成后通常自带全局方法
+    function openChat(){
+        if (typeof window.nb === 'function')        { window.nb(); return; }            // 爱番番
+        if (window._hmt && typeof _hmt.push === 'function') { _hmt.push(['_trackEvent','openChat','click']); }
+        // 兜底：打开公司客服咨询地址
+        window.open('#','_blank');
+    }
+
+    // 平滑滚动
+    document.querySelectorAll('.nav-bar a[href^="#"]').forEach(a=>{
+        a.addEventListener('click',e=>{
+        e.preventDefault();
+        const t=document.querySelector(a.getAttribute('href'));
+        if(t) t.scrollIntoView({behavior:'smooth'});
+        });
+    });
+    </script>
 </body>
 </html>

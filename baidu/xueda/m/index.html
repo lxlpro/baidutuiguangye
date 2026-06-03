@@ -2,6 +2,21 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
+  
+<!-- ================================================================= -->
+<!-- ★★★ 百度统计 / 爱番番沟通工具代码（必须放在 <head> 之后）★★★ -->
+<!-- ================================================================= -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?48925e86a0ee5f53acb94049f2d362b3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- ================================================================= -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>学大教育移动端落地页</title>
   <style>
@@ -23,6 +38,15 @@
       padding: 0;
     }
 
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border: 0;
+      -ms-interpolation-mode: bicubic;
+    }
+
     html {
       background: #f4f4f4;
     }
@@ -35,11 +59,19 @@
     }
 
     .page {
-      /* width: min(100vw, var(--page-w)); */
+      width: 100%;
+      max-width: var(--page-w);
       min-height: 100vh;
       margin: 0 auto;
       overflow: hidden;
       background: var(--orange);
+    }
+
+    .full-img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: fill;
     }
 
     button {
@@ -57,7 +89,7 @@
 
     .hero {
       position: relative;
-      height: 272px;
+      height: auto;
       background: linear-gradient(180deg, #ffd58e 0%, #ffba54 76%, var(--orange) 76%);
     }
 
@@ -321,7 +353,7 @@
       text-align: center;
       font-size: 18px;
       font-weight: 800;
-      letter-spacing: 0.8cqw;
+      letter-spacing: 3px;
     }
 
     .learning {
@@ -507,7 +539,7 @@
       font-weight: 900;
       line-height: 1.15;
       background: linear-gradient(180deg, #ff972c, #ff6818);
-      letter-spacing: 0.5cqw;
+      letter-spacing: 2px;
     }
 
     .points {
@@ -531,8 +563,9 @@
       background: linear-gradient(180deg, #ffb02a, #ff6e18 60%, #ff4310);
       box-shadow: inset 0 2px 5px rgba(255, 255, 255, .5);
       white-space: nowrap;
-      width: 43cqw;
-      letter-spacing: 0.2cqw;
+      width: 100%;
+      max-width: 162px;
+      letter-spacing: 1px;
     }
 
     .footer {
@@ -540,22 +573,18 @@
       color: #fff;
       text-align: center;
       background: var(--orange);
-      height: 15cqh;
+      min-height: 56px;
     }
 
     .footer-title {
       font-size: 29px;
       font-weight: 900;
       line-height: 1.07;
-      letter-spacing: 1cqw;
+      letter-spacing: 4px;
       text-shadow: 0 2px 0 rgba(203, 40, 0, .16);
     }
 
     @media (max-width: 340px) {
-      .hero {
-        height: 250px;
-      }
-
       .hero-card {
         height: 216px;
       }
@@ -583,12 +612,12 @@
 <body>
   <main class="page">
     <section class="hero" aria-label="学大教育">
-      <img src="./images/1.png" style="object-fit: fill;width: stretch;">
+      <img class="full-img" src="./images/1.png" alt="">
     </section>
 
     <section class="entry">
       <div class="entry-panel">
-        <img src="./images/2.png" style="object-fit: fill;width: stretch;">
+        <img class="full-img" src="./images/2.png" alt="">
         <button class="cta">预约定制学习方案</button>
       </div>
     </section>
@@ -597,18 +626,18 @@
       <h2 class="title">个性化教育学习中心</h2>
       <p class="subtitle">6名教师x1位学生，陪伴式贴心服务</p>
 
-      <div style="margin-top: 3cqw;">
-        <img src="./images/3.png" style="object-fit: fill;width: stretch;">
+      <div style="margin-top: 11px;">
+        <img class="full-img" src="./images/3.png" alt="">
       </div>
 
       <button class="cta">预约定制学习方案</button>
     </section>
 
     <section class="section stats">
-      <div style="margin-top: 3cqw;">
-        <img src="./images/4.png" style="object-fit: fill;width: stretch;">
+      <div style="margin-top: 11px;">
+        <img class="full-img" src="./images/4.png" alt="">
       </div>
-      <button class="cta">了解学大资质</button>
+      <button class="cta" href="javascript:openChat();">了解学大资质</button>
     </section>
 
     <section class="section classes">
@@ -616,7 +645,7 @@
       <div class="class-grid">
         <article class="class-card">
           <div class="" style="height: 110px;">
-            <img src="./images/5.png" style="object-fit: fill;width: stretch;">
+            <img class="full-img" src="./images/5.png" alt="">
           </div>
           <h3 class="class-caption">1对1个性化<br>辅导课程</h3>
           <p class="points">·科学评估学情<br>·定制学习方案<br>·直击知识漏洞<br>·快速突破学习难点</p>
@@ -624,27 +653,27 @@
         </article>
         <article class="class-card">
           <div class="" style="height: 110px;">
-            <img src="./images/6.png" style="object-fit: fill;width: stretch;">
+            <img class="full-img" src="./images/6.png" alt="">
           </div>
           <h3 class="class-caption">3-6人班组课</h3>
           <p class="points">·1名教师只教3-6个学生<br>·引导式讲解培养发散思维<br>·使每名学生都能被照顾到<br>·家长的高性价比选择</p>
-          <button class="small-cta">了解小班课辅导</button>
+          <button class="small-cta" href="javascript:openChat();">了解小班课辅导</button>
         </article>
         <article class="class-card">
           <div class="" style="height: 110px;">
-            <img src="./images/7.png" style="object-fit: fill;width: stretch;">
+            <img class="full-img" src="./images/7.png" alt="">
           </div>
           <h3 class="class-caption">中高考全日制集训</h3>
           <p class="points">·精细化教学管理<br>·优化教学实施策略<br>·锁定问题系统原因<br>·专属定制学习方案</p>
-          <button class="small-cta">了解全日制辅导</button>
+          <button class="small-cta" href="javascript:openChat();">了解全日制辅导</button>
         </article>
         <article class="class-card">
           <div class="" style="height: 110px;">
-            <img src="./images/8.png" style="object-fit: fill;width: stretch;height: auto;">
+            <img class="full-img" src="./images/8.png" alt="">
           </div>
           <h3 class="class-caption">中高考全托班</h3>
           <p class="points">·激发学习动力<br>·专项知识技巧点睛<br>·思维能力培养<br>·查漏补缺提高改变</p>
-          <button class="small-cta">了解全托班</button>
+          <button class="small-cta" href="javascript:openChat();">了解全托班</button>
         </article>
       </div>
     </section>
@@ -653,5 +682,23 @@
       <div class="footer-title">全国400+学习中心<br>覆盖全国100+城市</div>
     </footer>
   </main>
+  <script>
+  // 唤起爱番番在线沟通弹窗：hm.js 加载完成后通常自带全局方法
+  function openChat(){
+    if (typeof window.nb === 'function')        { window.nb(); return; }            // 爱番番
+    if (window._hmt && typeof _hmt.push === 'function') { _hmt.push(['_trackEvent','openChat','click']); }
+    // 兜底：打开公司客服咨询地址
+    window.open('#','_blank');
+  }
+
+  // 平滑滚动
+  document.querySelectorAll('.nav-bar a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t) t.scrollIntoView({behavior:'smooth'});
+    });
+  });
+</script>
 </body>
 </html>

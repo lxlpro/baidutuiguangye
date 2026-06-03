@@ -2,11 +2,33 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
+  
+
+<!-- ================================================================= -->
+<!-- ★★★ 百度统计 / 爱番番沟通工具代码（必须放在 <head> 之后）★★★ -->
+<!-- ================================================================= -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?48925e86a0ee5f53acb94049f2d362b3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- ================================================================= -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>初高中在线网课</title>
   <style>
     * {
       box-sizing: border-box;
+    }
+
+    img {
+      max-width: 100%;
+      border: 0;
+      vertical-align: middle;
     }
 
     html,
@@ -46,7 +68,14 @@
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: fill;
+    }
+
+    .need-icon img {
+      display: block;
+      width: 25px;
+      height: 25px;
+      object-fit: contain;
     }
 
     .section-card {
@@ -380,7 +409,7 @@
     .ai-chat img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: fill;
       display: block;
     }
 
@@ -458,7 +487,207 @@
       .page {
         width: 536px;
         max-width: 100vw;
+        background:
+          radial-gradient(circle at 50% 2%, rgba(255, 255, 255, .98) 0 min(64px, 12vw), transparent min(241px, 45vw)),
+          linear-gradient(180deg, #fff7f1 0, #ffd6b4 14%, #ffc48d 100%);
       }
+
+      .hero { height: min(505px, 94.22vw); }
+      .section-card {
+        width: min(478px, 89.18vw);
+        margin-top: min(23px, 4.3vw);
+        padding: min(22px, 4.1vw) min(15px, 2.8vw) min(25px, 4.6vw);
+        border-radius: min(13px, 2.5vw);
+        box-shadow: 0 min(7px, 1.35vw) min(15px, 2.8vw) rgba(229, 103, 36, .2);
+      }
+
+      .course-card {
+        min-height: min(573px, 106.9vw);
+        padding-top: min(28px, 5.2vw);
+      }
+
+      .headline { font-size: min(44px, 8.15vw); }
+      .sub-headline {
+        margin-top: min(4px, .8vw);
+        font-size: min(43px, 8vw);
+      }
+
+      .needs {
+        gap: min(15px, 2.8vw);
+        margin-top: min(21px, 4vw);
+      }
+
+      .need-icon {
+        width: min(55px, 10.25vw);
+        height: min(55px, 10.25vw);
+        font-size: min(28px, 5.2vw);
+      }
+
+      .need-title {
+        width: min(78px, 14.5vw);
+        margin-top: min(10px, 1.8vw);
+        border-radius: min(13px, 2.5vw);
+        font-size: min(16px, 3vw);
+        line-height: min(23px, 4.2vw);
+        padding: min(4px, .8vw) 0;
+      }
+
+      .need-text {
+        margin-top: min(6px, 1.1vw);
+        font-size: min(13px, 2.4vw);
+      }
+
+      .subjects {
+        grid-template-columns: min(30px, 5.6vw) 1fr;
+        gap: 0 min(6px, 1.1vw);
+        width: min(423px, 79vw);
+        margin-top: min(25px, 4.6vw);
+      }
+
+      .subjects-label { font-size: min(18px, 3.45vw); }
+      .subjects-grid { gap: min(6px, 1.15vw) min(12px, 2.2vw); }
+      .subject {
+        height: min(24px, 4.55vw);
+        border-width: min(2px, .32vw);
+        border-radius: min(27px, 5vw);
+        font-size: min(17px, 3.2vw);
+        line-height: min(24px, 4.55vw);
+        padding: 0;
+      }
+
+      .cta {
+        width: min(403px, 75.1vw);
+        height: min(57px, 10.7vw);
+        margin-top: min(29px, 5.4vw);
+        border-radius: min(38px, 7vw);
+        box-shadow: 0 min(7px, 1.35vw) min(12px, 2.2vw) rgba(255, 79, 52, .42);
+        font-size: min(22px, 4.1vw);
+      }
+
+      .bar-title {
+        height: min(60px, 11.2vw);
+        border-radius: min(13px, 2.4vw);
+        box-shadow: 0 min(4px, .8vw) min(9px, 1.6vw) rgba(255, 104, 62, .32);
+        font-size: min(31px, 5.75vw);
+      }
+
+      .media {
+        height: min(285px, 53.2vw);
+        margin-top: min(11px, 2.1vw);
+        border-radius: min(4px, .8vw);
+      }
+
+      .media.online { height: min(258px, 48.1vw); }
+
+      .note {
+        grid-template-columns: min(101px, 18.8vw) 1fr;
+        min-height: min(46px, 8.6vw);
+        margin-top: min(12px, 2.15vw);
+        border-width: 1px;
+        border-radius: min(32px, 6vw);
+        font-size: min(14px, 2.7vw);
+      }
+
+      .note strong,
+      .chip strong {
+        border-radius: min(32px, 6vw);
+        font-size: min(19px, 3.55vw);
+      }
+
+      .note span { padding: min(5px, .9vw) min(11px, 2vw); }
+      .home-card { padding-bottom: min(20px, 3.7vw); }
+
+      .home-subtitle,
+      .ai-subtitle {
+        margin-top: min(23px, 4.2vw);
+        font-size: min(21px, 3.9vw);
+        letter-spacing: min(3px, .65vw);
+      }
+
+      .screen-shot {
+        width: min(425px, 79.3vw);
+        height: min(246px, 45.9vw);
+        margin-top: min(27px, 5.1vw);
+        border-radius: min(9px, 1.6vw);
+      }
+
+      .home-card .screen-shot { margin-top: min(40px, 7.5vw); }
+      .home-card .chip-list { margin-top: min(57px, 10.7vw); }
+
+      .chip-list {
+        gap: min(10px, 1.8vw) min(11px, 2vw);
+        margin-top: min(17px, 3.2vw);
+      }
+
+      .chip {
+        grid-template-columns: min(90px, 16.7vw) 1fr;
+        min-height: min(33px, 6.1vw);
+        border-width: 1px;
+        border-radius: min(32px, 6vw);
+        font-size: min(10px, 1.95vw);
+      }
+
+      .chip span { padding: min(4px, .7vw) min(27px, 5.1vw); }
+      .ai-card { padding-bottom: min(23px, 4.2vw); }
+      .ai-subtitle {
+        margin-top: min(21px, 4vw);
+        letter-spacing: min(2px, .35vw);
+      }
+
+      .ai-panels {
+        width: min(462px, 86.2vw);
+        height: min(406px, 75.7vw);
+        margin-top: min(19px, 3.5vw);
+      }
+
+      .ai-chat {
+        width: min(426px, 79.5vw);
+        height: min(203px, 37.9vw);
+        margin-top: min(38px, 7vw);
+        border-radius: min(6px, 1.2vw);
+      }
+
+      .ai-card .chip-list {
+        gap: min(7px, 1.35vw);
+        width: min(431px, 80.5vw);
+        margin-top: min(13px, 2.5vw);
+      }
+
+      .ai-card .chip {
+        grid-template-columns: min(103px, 19.2vw) 1fr;
+        min-height: min(34px, 6.3vw);
+        font-size: min(18px, 3.35vw);
+      }
+
+      .team-card {
+        margin-bottom: min(28px, 5.3vw);
+        padding-bottom: min(25px, 4.7vw);
+      }
+
+      .team-card .media {
+        height: min(250px, 46.6vw);
+        margin-top: min(12px, 2.2vw);
+      }
+
+      .team-list {
+        gap: min(9px, 1.6vw);
+        margin-top: min(17px, 3.2vw);
+      }
+
+      .team-item {
+        grid-template-columns: min(102px, 19vw) 1fr;
+        min-height: min(34px, 6.4vw);
+        border-width: 1px;
+        border-radius: min(32px, 6vw);
+        font-size: min(18px, 3.45vw);
+      }
+
+      .team-item strong {
+        border-radius: min(32px, 6vw);
+        font-size: min(16px, 3vw);
+      }
+
+      .team-item span { padding: 0 min(21px, 4vw); }
     }
   </style>
 </head>
@@ -475,21 +704,21 @@
       <div class="needs">
         <div class="need">
           <div class="need-icon" aria-hidden="true">
-            <img src="./images/3.png" style="object-fit: fill;width:25px;">
+            <img src="./images/3.png" alt="">
           </div>
           <div class="need-title">基础弱</div>
           <p class="need-text">跟不上大班课<br>一对一攻坚</p>
         </div>
         <div class="need">
           <div class="need-icon" aria-hidden="true">
-            <img src="./images/1.png" style="object-fit: fill;width:25px;">
+            <img src="./images/1.png" alt="">
           </div>
           <div class="need-title">没信心</div>
           <p class="need-text">担心听不懂讲解<br>问题无人即时解答</p>
         </div>
         <div class="need">
           <div class="need-icon" aria-hidden="true">
-            <img src="./images/2.png" style="object-fit: fill;width:25px;">
+            <img src="./images/2.png" alt="">
           </div>
           <div class="need-title">无规划</div>
           <p class="need-text">学习无规划<br>也不会制定计划</p>
@@ -511,7 +740,7 @@
         </div>
       </div>
 
-      <a class="cta" href="javascript:void(0)">咨询课程价格</a>
+      <a class="cta" href="javascript:openChat();">咨询课程价格</a>
     </section>
 
     <section class="section-card feature-card">
@@ -541,7 +770,7 @@
       <p class="home-subtitle">支持手机、iPad、电脑，随时随地听课</p>
       
       <div class="screen-shot">
-        <img src="images/6.png" alt="上课设备界面" style="object-fit: fill;width: stretch;" />
+        <img src="images/6.png" alt="上课设备界面" />
       </div>
       <div class="chip-list">
         <div class="chip"><strong>直播课堂</strong><span>随时提问，视频连麦</span></div>
@@ -555,11 +784,11 @@
       <div class="bar-title">AI智慧伴学</div>
       <p class="ai-subtitle">1对1定制学，孩子成长看得见</p>
       <div class="ai-panels">
-        <img src="images/7.png" alt="上课设备界面" style="object-fit: fill;width: stretch;" />
+        <img src="images/7.png" alt="上课设备界面" />
       </div>
-      <a class="cta" href="javascript:void(0)">咨询课程价格</a>
+      <a class="cta" href="javascript:openChat();">咨询课程价格</a>
       <div class="ai-chat">
-        <img src="images/8.png" alt="上课设备界面" style="object-fit: fill;width: stretch;" />
+        <img src="images/8.png" alt="上课设备界面" />
       </div>
       <div class="chip-list">
         <div class="chip"><strong style="letter-spacing: 0.3cqw;">课前强引导</strong><span>上课提醒、引导预习、温故知新</span></div>
@@ -567,13 +796,13 @@
         <div class="chip"><strong>课前强反馈</strong><span>个性化课堂报告，学情总结分析</span></div>
         <div class="chip"><strong>课前强沟通</strong><span>贴心答疑服务，精选资料全放送</span></div>
       </div>
-      <a class="cta" href="javascript:void(0)">咨询课程价格</a>
+      <a class="cta" href="javascript:openChat();">咨询课程价格</a>
     </section>
 
     <section class="section-card feature-card team-card">
       <div class="bar-title">一线名师团队</div>
       <div class="media">
-        <img src="images/9.png" alt="上课设备界面" style="object-fit: fill;width: stretch;" />
+        <img src="images/9.png" alt="上课设备界面" />
       </div>
       <div class="team-list">
         <div class="team-item"><strong>一线名师</strong><span>来自北上教研强省的教研精华</span></div>
@@ -581,8 +810,28 @@
         <div class="team-item"><strong>解题思路</strong><span>一线城市的解题视角</span></div>
         <div class="team-item"><strong>无地域限制</strong><span>打破地域限制</span></div>
       </div>
-      <a class="cta" href="javascript:void(0)">咨询课程价格</a>
+      <a class="cta" href="javascript:openChat();">咨询课程价格</a>
     </section>
   </main>
+  
+<script>
+  // 唤起爱番番在线沟通弹窗：hm.js 加载完成后通常自带全局方法
+  function openChat(){
+    if (typeof window.nb === 'function')        { window.nb(); return; }            // 爱番番
+    if (window._hmt && typeof _hmt.push === 'function') { _hmt.push(['_trackEvent','openChat','click']); }
+    // 兜底：打开公司客服咨询地址
+    window.open('#','_blank');
+  }
+
+  // 平滑滚动
+  document.querySelectorAll('.nav-bar a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t) t.scrollIntoView({behavior:'smooth'});
+    });
+  });
+</script>
+
 </body>
 </html>

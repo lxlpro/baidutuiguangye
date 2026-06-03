@@ -2,6 +2,21 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
+  
+<!-- ================================================================= -->
+<!-- ★★★ 百度统计 / 爱番番沟通工具代码（必须放在 <head> 之后）★★★ -->
+<!-- ================================================================= -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?48925e86a0ee5f53acb94049f2d362b3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- ================================================================= -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>有道领世教育</title>
   <style>
@@ -12,8 +27,11 @@
     }
 
     html {
+      font-size: 9.259259vw;
       font-size: min(9.259259vw, 100px);
       background: #eef0ff;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body {
@@ -24,9 +42,30 @@
     }
 
     button {
+      -webkit-appearance: none;
+      appearance: none;
       border: 0;
       font: inherit;
       cursor: pointer;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      border: 0;
+    }
+
+    .img-fill {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+
+    .img-full {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     .page {
@@ -85,6 +124,7 @@
       top: .98rem;
       width: 4.42rem;
       height: 7.82rem;
+      overflow: hidden;
       /* background: url("./images/hero.png") no-repeat -.02rem -1.02rem / 10.8rem 68.19rem; */
     }
 
@@ -135,6 +175,7 @@
       font-weight: 500;
       text-align: left;
       padding-left: .11rem;
+      letter-spacing: .012rem;
       letter-spacing: 0.12cqw;
     }
 
@@ -214,8 +255,9 @@
     }
 
     .photo {
-      width: stretch;
-      height: stretch;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
     }
 
     .photo-course-left {
@@ -261,6 +303,7 @@
       padding: .24rem .06rem 0;
       font-size: .18rem;
       line-height: .45rem;
+      letter-spacing: .02rem;
       letter-spacing: 0.2cqw;
       text-align: left;
     }
@@ -282,6 +325,7 @@
       font-size: .35rem;
       font-weight: 900;
       line-height: 1;
+      letter-spacing: .015rem;
       letter-spacing: 0.15cqw;
     }
 
@@ -310,6 +354,7 @@
       line-height: .82rem;
       font-weight: 950;
       background: #4455c9;
+      letter-spacing: .02rem;
       letter-spacing: 0.2cqw;
     }
 
@@ -323,7 +368,9 @@
       border-radius: 0 .36rem .36rem 0;
       position: absolute;
       left: 0;
+      top: .5rem;
       top: 5cqw;
+      letter-spacing: .03rem;
       letter-spacing: 0.3cqw;
     }
 
@@ -335,6 +382,7 @@
     .teacher-sub {
       margin-bottom: .42rem;
       color: #7b7482;
+      margin-top: 1.6rem;
       margin-top: 16cqw;
       font-size: .5rem;
       line-height: .36rem;
@@ -371,8 +419,10 @@
 
     .study-title {
       position: absolute;
+      top: .5rem;
       top: 5cqw;
       right: 0;
+      letter-spacing: .03rem;
       letter-spacing: 0.3cqw;
       width: 9.2rem;
       height: 1.1rem;
@@ -386,6 +436,7 @@
     }
 
     .study-sub {
+      margin-top: 1.6rem;
       margin-top: 16cqw;
       color: #6e7285;
       font-size: .4rem;
@@ -485,6 +536,11 @@
       grid-template-columns: 1fr 1fr;
       gap: .22rem .39rem;
       margin-bottom: .57rem;
+    }
+
+    .ai-chart {
+      margin-top: 1.8rem;
+      margin-top: 18cqw;
     }
 
     .metric-card {
@@ -630,6 +686,7 @@
 
     .phone-row {
       position: relative;
+      margin-top: 1rem;
       margin-top: 10cqw;
     }
 
@@ -690,6 +747,7 @@
       color: #fff;
       font-size: .31rem;
       background: #8a97ff;
+      letter-spacing: .015rem;
       letter-spacing: 0.15cqw;
     }
 
@@ -715,7 +773,7 @@
   <main class="page">
     <section class="hero">
       <div class="hero-person" aria-label="学生图片占位">
-        <img src="./images/hero.png" style="object-fit: fill;width: auto;">
+        <img class="img-fill" src="./images/hero.png" alt="">
       </div>
       <div class="hero-copy">
         <div class="brand-pill">网易有道旗下<span style="color: #f1cb78;">初高中网课</span>品牌</div>
@@ -749,19 +807,19 @@
         <div class="course-list">
           <article class="course-card">
             <div class="course-cover">
-              <img src="./images/2.png" style="object-fit: fill;width:stretch;">
+              <img class="img-fill" src="./images/2.png" alt="">
               <div class="cover-label">初中1对1在线辅导</div>
             </div>
             <p class="course-text"><strong style="font-weight: bold;">课程特点：</strong><br/>根据各地必考点、易错点同步学科辅导，提升各科成绩</p>
-            <button class="blue-btn" style="margin-top: 1rem;">咨询课程学费</button>
+            <button class="blue-btn" style="margin-top: 1rem;" href="javascript:openChat();">咨询课程学费</button>
           </article>
           <article class="course-card">
             <div class="course-cover">
-              <img src="./images/3.png" style="object-fit: fill;width:stretch;">
+              <img class="img-fill" src="./images/3.png" alt="">
               <div class="cover-label">高中在线辅导<span class="vip">1V1+班课</span></div>
             </div>
             <p class="course-text"><strong>课程特点：</strong><br/>课前1V1学情诊断，了解孩子学习状态，课中清北牛师授课课后学习&答疑</p>
-            <button class="blue-btn">咨询课程学费</button>
+            <button class="blue-btn" href="javascript:openChat();">咨询课程学费</button>
           </article>
         </div>
       </section>
@@ -771,10 +829,10 @@
       <h2 class="section-title full">有道领世网课 清北牛师天团</h2>
       <p class="teacher-sub">让家长省心让孩子高效逆袭</p>
       <div class="team-photo">
-        <img src="./images/4.png" style="object-fit: fill;width:stretch;height: 4.72rem;">
+        <img class="img-fill" src="./images/4.png" alt="">
       </div>
       <div class="center">
-        <button class="orange-btn">咨询课程学费</button>
+        <button class="orange-btn" href="javascript:openChat();">咨询课程学费</button>
       </div>
     </section>
 
@@ -784,7 +842,7 @@
         <p class="study-sub">支持手机、iPad、电脑，随时随地听课</p>
       </div>
       <div class="device">
-        <img src="./images/5.png" style="object-fit: fill;width:stretch;height: 4.72rem;">
+        <img class="img-fill" src="./images/5.png" alt="">
       </div>
       <div class="features">
         <div class="feature">
@@ -813,7 +871,7 @@
         </div>
       </div>
       <div class="center">
-        <button class="orange-btn">咨询课程学费</button>
+        <button class="orange-btn" href="javascript:openChat();">咨询课程学费</button>
       </div>
     </section>
 
@@ -822,14 +880,14 @@
         <div class="ai-main">AI智慧伴学</div>
         <div class="ai-sub">1对1定制学<br>孩子成长看得见</div>
       </div>
-      <div style="margin-top: 18cqw;">
-        <img src="./images/6.png" style="object-fit: fill;width: stretch;">
+      <div class="ai-chart">
+        <img class="img-full" src="./images/6.png" alt="">
       </div>
       <div class="center">
-        <button class="orange-btn">咨询课程学费</button>
+        <button class="orange-btn" href="javascript:openChat();">咨询课程学费</button>
       </div>
       <div class="phone-row">
-        <img src="./images/7.png" style="object-fit: fill;width: stretch;">
+        <img class="img-full" src="./images/7.png" alt="">
       </div>
       <div class="service-list">
         <div class="service-row"><strong>课前强引导</strong><span>上课提醒、引导预习、温故知新</span></div>
@@ -838,9 +896,29 @@
         <div class="service-row"><strong>课外强沟通</strong><span>贴心答疑解惑，精选资料全放送</span></div>
       </div>
       <div class="center">
-        <button class="orange-btn">咨询课程学费</button>
+        <button class="orange-btn" href="javascript:openChat();">咨询课程学费</button>
       </div>
     </section>
   </main>
+  
+<script>
+  // 唤起爱番番在线沟通弹窗：hm.js 加载完成后通常自带全局方法
+  function openChat(){
+    if (typeof window.nb === 'function')        { window.nb(); return; }            // 爱番番
+    if (window._hmt && typeof _hmt.push === 'function') { _hmt.push(['_trackEvent','openChat','click']); }
+    // 兜底：打开公司客服咨询地址
+    window.open('#','_blank');
+  }
+
+  // 平滑滚动
+  document.querySelectorAll('.nav-bar a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t) t.scrollIntoView({behavior:'smooth'});
+    });
+  });
+</script>
+
 </body>
 </html>

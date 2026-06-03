@@ -2,6 +2,21 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    
+<!-- ================================================================= -->
+<!-- ★★★ 百度统计 / 爱番番沟通工具代码（必须放在 <head> 之后）★★★ -->
+<!-- ================================================================= -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?48925e86a0ee5f53acb94049f2d362b3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- ================================================================= -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>有道领世教育 - 网易有道旗下高中课程品牌</title>
     <style>
@@ -477,7 +492,7 @@
                                 根据各地必考点、易错点<br>同步学科辅导，提升各科成绩
                             </div>
                         </div>
-                        <button class="course-cta">咨询课程</button>
+                        <button class="course-cta" href="javascript:openChat();">咨询课程</button>
                     </div>
                     <div>
                         <div class="course-card">
@@ -491,7 +506,7 @@
                                 课前1V1学情诊断，了解孩子学习状态，课中清北牛师授课，课后学习&答疑
                             </div>
                         </div>
-                        <button class="course-cta">咨询课程</button>
+                        <button class="course-cta" href="javascript:openChat();">咨询课程</button>
                     </div>
                 </div>
             </section>
@@ -506,7 +521,7 @@
                 <h2 class="section-title">有道领世网课　清北牛师天团</h2>
                 <p class="section-subtitle">让 家 长 省 心 让 孩 子 高 效 逆 袭</p>
                 <img src="./images/4.png" alt="教师团队" class="teacher-image" />
-                <button class="cta-button">咨询课程</button>
+                <button class="cta-button" href="javascript:openChat();">咨询课程</button>
             </section>
         </div>
     </div>
@@ -523,7 +538,7 @@
                     <img src="./images/5.png" style="object-fit: fill;width: 80%;">
                 </div>
                 
-                <button class="cta-button">咨询课程</button>
+                <button class="cta-button" href="javascript:openChat();">咨询课程</button>
             </section>
         </div>
     </div>
@@ -540,9 +555,29 @@
                     <img src="./images/6.png" style="object-fit: fill;width: 80%;"
                 </div>
                 
-                <button class="cta-button">咨询课程</button>
+                <button class="cta-button" href="javascript:openChat();">咨询课程</button>
             </section>
         </div>
     </div>
+    
+<script>
+  // 唤起爱番番在线沟通弹窗：hm.js 加载完成后通常自带全局方法
+  function openChat(){
+    if (typeof window.nb === 'function')        { window.nb(); return; }            // 爱番番
+    if (window._hmt && typeof _hmt.push === 'function') { _hmt.push(['_trackEvent','openChat','click']); }
+    // 兜底：打开公司客服咨询地址
+    window.open('#','_blank');
+  }
+
+  // 平滑滚动
+  document.querySelectorAll('.nav-bar a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t) t.scrollIntoView({behavior:'smooth'});
+    });
+  });
+</script>
+
 </body>
 </html>
